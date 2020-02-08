@@ -1,6 +1,19 @@
 {
   "name": "ngx-iban-validator",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SKaDiZZ/ngx-iban-validator"
+  },
+  "bugs": {
+    "url": "https://github.com/SKaDiZZ/ngx-iban-validator/issues"
+  },
+  "author": {
+    "name": "Samir Kahvedzic",
+    "email": "akirapowered@gmail.com",
+    "url": "https://virtuooza.com"
+  },
+
   "description": "IBAN Number validator for your Angular forms.",
   "main": "dist/index.js",
   "scripts": {
@@ -16,6 +29,5 @@
     "forms",
     "input"
   ],
-  "author": "Samir Kahvedzic",
-  "license": "ISC"
+  "license": "MIT"
 }

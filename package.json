@@ -13,8 +13,7 @@
     "email": "akirapowered@gmail.com",
     "url": "https://virtuooza.com"
   },
-
-  "description": "IBAN Number validator for your Angular forms.",
+  "description": "IBAN Validator for your reactive Angular forms, comes without any dependencies and can be used even outside of Angular as standalone function in any JS project. It can perform format, digit and length IBAN validations.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

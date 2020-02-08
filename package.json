@@ -1,0 +1,21 @@
+{
+  "name": "ngx-iban-validator",
+  "version": "1.0.0",
+  "description": "IBAN Number validator for your Angular forms.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "ngx",
+    "iban",
+    "validator",
+    "angular",
+    "forms",
+    "input"
+  ],
+  "author": "Samir Kahvedzic",
+  "license": "ISC"
+}

@@ -24,6 +24,7 @@
     "ngx",
     "iban",
     "validator",
+    "iban-validator",
     "angular",
     "forms",
     "input"

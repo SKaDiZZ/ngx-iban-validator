@@ -6,8 +6,8 @@ IBAN Validator for your reactive Angular forms, comes without any dependencies a
 npm install ngx-iban-validator --save
 ```
 
-## How to use
-Import validateIBAN function from ngx-iban-validator package into your component file.
+## Use as a form validator
+Import validateIBAN function from ngx-iban-validator package into your component file. Add validateIBAN to your form validators array.
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 ```
 
 ## Display error
-
+You can display errors easily as with any other validator.
 ```html
 <form [formGroup]="ibanForm">
   <input type="text" formControlName="iban" />
@@ -49,6 +49,18 @@ export class AppComponent implements OnInit {
     IBAN is invalid
   </small>
 </form>
+```
+
+## Use as standalone function
+You can use validateIBAN function independently from any forms. Function will check IBAN and return object { ibanInvalid: boolean }
+```typescript
+ const ibanIsInvalid = validateIBAN({ value: 'AL35202111090000000001234567' }).ibanInvalid;
+ ```
+
+ # NodeJS
+ ```javascript
+const ibanValidator = require('ngx-iban-validator');
+const ibanIsInvalid = ibanValidator.validateIBAN({ value: 'BA393385804800211234' }).ibanInvalid;
 ```
 
 ## Read more

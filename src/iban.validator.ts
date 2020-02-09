@@ -1,4 +1,4 @@
-export function validateIBAN(control: any): { ibanInvalid: boolean; } | object  {
+export function validateIBAN(control: any): { ibanInvalid: boolean; } {
 
   const codeLengths = {
       AD: 24, AE: 23, AL: 28, AT: 20, AZ: 28, BA: 20, BE: 16, BG: 22, BH: 22, BR: 29, BY: 28, CH: 21, CR: 21, CY: 28, CZ: 24,
@@ -18,7 +18,7 @@ export function validateIBAN(control: any): { ibanInvalid: boolean; } | object  
       digits = (code[3] + code[1] + code[2]).replace(/[A-Z]/g, (letter: string) => {
         return letter.charCodeAt(0) - 55;
       });
-      return mod97(digits) === 1 ? null : { ibanInvalid: true };
+      return mod97(digits) === 1 ? { ibanInvalid: false } : { ibanInvalid: true };
     }
 }
 

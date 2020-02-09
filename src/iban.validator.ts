@@ -1,4 +1,15 @@
-export function validateIBAN(control: any): { ibanInvalid: boolean; } {
+export interface IBANError {
+  countryUnsupported: boolean;
+  codeLengthInvalid: boolean;
+  patternInvalid: boolean;
+}
+
+export interface IBANValidationResult {
+  ibanInvalid: boolean;
+  error: IBANError;
+}
+
+export function validateIBAN(control: any): IBANValidationResult {
 
   const codeLengths = {
       AD: 24, AE: 23, AL: 28, AT: 20, AZ: 28, BA: 20, BE: 16, BG: 22, BH: 22, BR: 29, BY: 28, CH: 21, CR: 21, CY: 28, CZ: 24,
@@ -9,16 +20,50 @@ export function validateIBAN(control: any): { ibanInvalid: boolean; } {
     };
  
     if (control.value) {
+
       const iban = control.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
       const code = iban.match(/^([A-Z]{2})(\d{2})([A-Z\d]+)$/);
+
       let digits: number;
-      if (!code || iban.length !== codeLengths[code[1]]) {
-        return { ibanInvalid: true };
+
+      if (!code || typeof codeLengths[code[1]] === 'undefined') {
+        return { 
+          ibanInvalid: true, 
+          error: { 
+            countryUnsupported: true, 
+            codeLengthInvalid: false, 
+            patternInvalid: false 
+          }
+        };
       }
+
+      if (iban.length !== codeLengths[code[1]]) {
+        return { 
+          ibanInvalid: true, 
+          error: { 
+            countryUnsupported: false, 
+            codeLengthInvalid: true, 
+            patternInvalid: false 
+          }
+        };
+      }
+
       digits = (code[3] + code[1] + code[2]).replace(/[A-Z]/g, (letter: string) => {
         return letter.charCodeAt(0) - 55;
       });
-      return mod97(digits) === 1 ? { ibanInvalid: false } : { ibanInvalid: true };
+
+      return mod97(digits) === 1 ? 
+      { 
+        ibanInvalid: false, 
+        error: null 
+      } : { 
+        ibanInvalid: true, 
+        error: { 
+          countryUnsupported: false, 
+          codeLengthInvalid: false, 
+          patternInvalid: true 
+        }
+      };
     }
 }
 

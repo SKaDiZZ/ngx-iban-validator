@@ -41,12 +41,34 @@ export class AppComponent implements OnInit {
 ```
 
 ## Display error
-You can display errors easily as with any other validator.
+Validator is returning object as result of checks. 
+```typescript
+export interface IBANValidationResult {
+  ibanInvalid: boolean;
+  error: IBANError;
+}
+
+export interface IBANError {
+  countryUnsupported: boolean;
+  codeLengthInvalid: boolean;
+  patternInvalid: boolean;
+}
+```
+
+Error object contains more details about validation error. You can display errors easily as with any other validator.
 ```html
 <form [formGroup]="ibanForm">
   <input type="text" formControlName="iban" />
   <small *ngIf="ibanForm.get('iban').errors && ibanForm.get('iban').errors.ibanInvalid">
-    IBAN is invalid
+    <span *ngIf="ibanForm.get('iban').errors.error.countryUnsupported">
+      Country not supported
+    </span>
+    <span *ngIf="ibanForm.get('iban').errors.error.codeLengthInvalid">
+      IBAN Code length is invalid
+    </span>
+    <span *ngIf="ibanForm.get('iban').errors.error.patternInvalid">
+      IBAN Code pattern is invalid
+    </span>
   </small>
 </form>
 ```

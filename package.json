@@ -1,6 +1,6 @@
 {
   "name": "ngx-iban-validator",
-  "version": "1.0.1",
+  "version": "1.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/SKaDiZZ/ngx-iban-validator"

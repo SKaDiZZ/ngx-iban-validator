@@ -100,7 +100,7 @@ npm i
 npx tsc
 ```
 
-# v 1.0.1
+# v 1.1.2
 
 Updated length for CR to 22 - @freddy36
 

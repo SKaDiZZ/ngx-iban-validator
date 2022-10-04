@@ -197,6 +197,12 @@ npm run test
 npx tsc
 ```
 
+# v 1.1.4
+
+Avoid Angular warnings for old CommonJS module usage (see https://angular.io/guide/build#configuring-commonjs-dependencies)
+
+Replaced mocha and chai with JEST for tests
+
 # v 1.1.3
 
 Added support for new countries Vatican, Libya, Sao Tome and Principe, Sudan

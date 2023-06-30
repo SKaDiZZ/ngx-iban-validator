@@ -83,7 +83,7 @@ Error object contains more details about validation error. You can display error
 
 Check demo application on stackblitz
 
-<iframe src="https://stackblitz.com/edit/stackblitz-starters-d6zn46?embed=1&file=src%2Fmain.ts"></iframe>
+[NGX IBAN Validator Demo Application](https://stackblitz.com/edit/stackblitz-starters-d6zn46?file=src%2Fmain.ts)
 
 ## Use as standalone function
 

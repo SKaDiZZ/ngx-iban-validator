@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.ibanForm = this.formBuilder.group({
-      iban: ["", [Validators.required, validateIBAN]],
+      iban: [null, [Validators.required, validateIBAN]],
     });
   }
 }
@@ -38,7 +38,9 @@ export class AppComponent implements OnInit {
 
 ## Display error
 
-Validator is returning object as result of checks.
+- If IBAN is valid as result of validation **null** is returned.
+
+- If IBAN is invalid and some of the checks fail IBANValidationResult object is returned containing more info about error.
 
 ```typescript
 export interface IBANValidationResult {
@@ -59,38 +61,56 @@ Error object contains more details about validation error. You can display error
 <form [formGroup]="ibanForm">
   <input type="text" formControlName="iban" />
   <small
-    *ngIf="ibanForm.get('iban').errors && ibanForm.get('iban').errors.ibanInvalid"
+    *ngIf="
+      ibanForm.get('iban')?.errors && ibanForm.get('iban')?.errors?.['ibanInvalid']
+    "
   >
-    <span *ngIf="ibanForm.get('iban').errors.error.countryUnsupported">
+    <span *ngIf="ibanForm.get('iban')?.errors?.['error']['countryUnsupported']">
       Country not supported
     </span>
-    <span *ngIf="ibanForm.get('iban').errors.error.codeLengthInvalid">
+    <span *ngIf="ibanForm.get('iban')?.errors?.['error']['codeLengthInvalid']">
       IBAN Code length is invalid
     </span>
-    <span *ngIf="ibanForm.get('iban').errors.error.patternInvalid">
+    <span *ngIf="ibanForm.get('iban')?.errors?.['error']['patternInvalid']">
       IBAN Code pattern is invalid
     </span>
   </small>
+  <button [disabled]="ibanForm.invalid">Submit</button>
 </form>
 ```
 
 ## Use as standalone function
 
-You can use validateIBAN function independently from any forms. Function will check IBAN and return object { ibanInvalid: boolean }
+You can use validateIBAN function independently from any forms.
+
+Value can be passed as part of object in this case validation flow will be the same as for form validation:
+
+- If IBAN is valid as result of validation **null** is returned.
+
+- If IBAN is invalid and some of the checks fail IBANValidationResult object is returned containing more info about error.
 
 ```typescript
-const ibanIsInvalid = validateIBAN({
-  value: "AL35202111090000000001234567",
-}).ibanInvalid;
+const ibanIsInvalid =
+  validateIBAN({
+    value: "AL35202111090000000001234567",
+  }) !== null;
+```
+
+Value can be passed as a string:
+
+- For valid and invalid IBAN IBANValidationResult object is returned
+
+```bash
+const ibanIsInvalid = validateIBAN("AL35202111090000000001234567").ibanInvalid;
 ```
 
 # NodeJS
 
 ```javascript
 const ibanValidator = require("ngx-iban-validator");
-const ibanIsInvalid = ibanValidator.validateIBAN({
-  value: "BA393385804800211234",
-}).ibanInvalid;
+const ibanIsInvalid = ibanValidator.validateIBAN(
+  "BA393385804800211234"
+).ibanInvalid;
 ```
 
 # Supported countries
@@ -223,6 +243,18 @@ npm run test
 ```bash
 npx tsc
 ```
+
+# v 1.1.6
+
+- Updated error display logic
+- Value can be passed directly as a string or part of the object.
+  - If value is passed as a part of object same logic as for form validation is applied:
+    - If IBAN is valid as result of validation **null** is returned.
+    - If IBAN is invalid and some of the checks fail IBANValidationResult object is returned containing more info about error.
+  - If value is passed as a string:
+    - For valid and invalid IBAN IBANValidationResult object is returned.
+- Return null for valid form field to fix issue with disabling | enabling buttons
+  - Thnx to @pramodEE for reporting the issue
 
 # v 1.1.5
 

@@ -1,6 +1,6 @@
 # IBAN Validator
 
-IBAN Validator for your reactive Angular forms, comes without any dependencies and can be used even outside of Angular as standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently supports 105 countries
+IBAN Validator for your reactive Angular forms, comes without any dependencies and can be used even outside of Angular as standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently supports 107 countries
 
 ## Install
 

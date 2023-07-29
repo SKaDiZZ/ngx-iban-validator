@@ -150,6 +150,10 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "DK9520000123456789" })).toBe(null);
   });
 
+  it("validateIBAN for Djibouti DJ2110002010010409943020008 should return null", () => {
+    expect(validateIBAN({ value: "DJ2110002010010409943020008" })).toBe(null);
+  });
+
   it("validateIBAN for Dominican Republic DO22ACAU00000000000123456789 should return null", () => {
     expect(validateIBAN({ value: "DO22ACAU00000000000123456789" })).toBe(null);
   });
@@ -436,6 +440,10 @@ describe("validateIBAN", () => {
 
   it("validateIBAN for Slovenia SI56192001234567892 should return null", () => {
     expect(validateIBAN({ value: "SI56192001234567892" })).toBe(null);
+  });
+
+  it("validateIBAN for Somalia ES7921000813610123456789 should return null", () => {
+    expect(validateIBAN({ value: "SO061000001123123456789" })).toBe(null);
   });
 
   it("validateIBAN for Spain ES7921000813610123456789 should return null", () => {

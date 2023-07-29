@@ -149,6 +149,7 @@ const ibanIsInvalid = ibanValidator.validateIBAN(
 | Cyprus                   | CY           | 28     |
 | Czech Republic           | CZ           | 24     |
 | Denmark                  | DK           | 18     |
+| Djibouti                 | DJ           | 27     |
 | Dominican Republic       | DO           | 28     |
 | Egypt                    | EG           | 29     |
 | El Salvador              | SV           | 28     |
@@ -217,6 +218,7 @@ const ibanIsInvalid = ibanValidator.validateIBAN(
 | Seychelles               | SC           | 31     |
 | Slovak Republic          | SK           | 24     |
 | Slovenia                 | SI           | 19     |
+| Somalia                  | SO           | 23     |
 | Spain                    | ES           | 24     |
 | Sudan                    | SD           | 18     |
 | Sweden                   | SE           | 24     |
@@ -249,6 +251,10 @@ npm run test
 ```bash
 npx tsc
 ```
+
+# v 1.1.7
+
+- Added support for Djibouti and Somalia
 
 # v 1.1.6
 

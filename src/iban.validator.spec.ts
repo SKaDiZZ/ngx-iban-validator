@@ -174,6 +174,10 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "EE471000001020145685" })).toBe(null);
   });
 
+  it("validateIBAN for Falkland Islands FK12SC987654321098 should return null", () => {
+    expect(validateIBAN({ value: "FK12SC987654321098" })).toBe(null);
+  });
+
   it("validateIBAN for Faroe Islands FO9264600123456789 should return null", () => {
     expect(validateIBAN({ value: "FO9264600123456789" })).toBe(null);
   });

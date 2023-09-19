@@ -155,6 +155,7 @@ const ibanIsInvalid = ibanValidator.validateIBAN(
 | El Salvador              | SV           | 28     |
 | Equatorial Guinea        | GQ           | 27     |
 | Estonia                  | EE           | 20     |
+| Falkland Islands         | FK           | 18     |
 | Faroe Islands            | FO           | 18     |
 | Finland                  | FI           | 18     |
 | France                   | FR           | 27     |
@@ -251,6 +252,10 @@ npm run test
 ```bash
 npx tsc
 ```
+
+# v 1.1.8
+
+- Added support for Falkland Islands
 
 # v 1.1.7
 

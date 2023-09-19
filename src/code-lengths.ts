@@ -32,6 +32,7 @@ export const codeLengths: { [key: string]: number } = {
   EG: 29,
   ES: 24,
   FI: 18,
+  FK: 18,
   FO: 18,
   FR: 27,
   GA: 27,

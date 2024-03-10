@@ -80,6 +80,7 @@ export const codeLengths: { [key: string]: number } = {
   NI: 32,
   NL: 18,
   NO: 15,
+  OM: 23,
   PK: 24,
   PL: 28,
   PS: 29,

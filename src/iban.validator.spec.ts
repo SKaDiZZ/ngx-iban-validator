@@ -458,6 +458,10 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "SD8811123456789012" })).toBe(null);
   });
 
+  it("validateIBAN for Sultanate of Oman OM040280000012345678901 should return null", () => {
+    expect(validateIBAN({ value: "OM040280000012345678901" })).toBe(null);
+  });
+
   it("validateIBAN for Sweden SE7280000810340009783242 should return null", () => {
     expect(validateIBAN({ value: "SE7280000810340009783242" })).toBe(null);
   });

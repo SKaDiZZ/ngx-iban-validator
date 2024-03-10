@@ -1,6 +1,6 @@
 # IBAN Validator
 
-IBAN Validator for your reactive Angular forms, comes without any dependencies and can be used even outside of Angular as standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently supports 107 countries
+IBAN Validator for your reactive Angular forms, comes without any dependencies and can be used even outside of Angular as standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently supports 108 countries
 
 ## Install
 
@@ -222,6 +222,7 @@ const ibanIsInvalid = ibanValidator.validateIBAN(
 | Somalia                  | SO           | 23     |
 | Spain                    | ES           | 24     |
 | Sudan                    | SD           | 18     |
+| Sultanate of Oman        | OM           | 23     |
 | Sweden                   | SE           | 24     |
 | Switzerland              | CH           | 21     |
 | Timor-Leste              | TL           | 23     |
@@ -252,6 +253,10 @@ npm run test
 ```bash
 npx tsc
 ```
+
+# v 1.1.9
+
+- Added support for Sultanate of Oman
 
 # v 1.1.8
 

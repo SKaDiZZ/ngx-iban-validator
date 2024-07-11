@@ -98,8 +98,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "BG18RZBB91550123456789" })).toBe(null);
   });
 
-  it("validateIBAN for Burundi BI43201011067444 should return null", () => {
-    expect(validateIBAN({ value: "BI43201011067444" })).toBe(null);
+  it("validateIBAN for Burundi BI1320001100010000123456789 should return null", () => {
+    expect(validateIBAN({ value: "BI1320001100010000123456789" })).toBe(null);
   });
 
   it("validateIBAN for Burkina Faso BF42BF0840101300463574000390 should return null", () => {
@@ -358,10 +358,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "NL02ABNA0123456789" })).toBe(null);
   });
 
-  it("validateIBAN for Nicaragua NI92BAMC000000000000000003123123 should return null", () => {
-    expect(validateIBAN({ value: "NI92BAMC000000000000000003123123" })).toBe(
-      null
-    );
+  it("validateIBAN for Nicaragua NI79BAMC00000000000003123123 should return null", () => {
+    expect(validateIBAN({ value: "NI79BAMC00000000000003123123" })).toBe(null);
   });
 
   it("validateIBAN for Niger NE58NE0380100100130305000268 should return null", () => {

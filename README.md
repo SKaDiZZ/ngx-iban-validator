@@ -295,7 +295,7 @@ Check demo applications for usage examples:
 | Bosnia and Herzegovina   | BA           | 20     |
 | Brazil                   | BR           | 29     |
 | Bulgaria                 | BG           | 22     |
-| Burundi                  | BI           | 16     |
+| Burundi                  | BI           | 27     |
 | Burkina Faso             | BF           | 28     |
 | Cameroon                 | CM           | 27     |
 | Cape Verde               | CV           | 25     |
@@ -358,7 +358,7 @@ Check demo applications for usage examples:
 | Morocco                  | MA           | 28     |
 | Mozambique               | MZ           | 25     |
 | Netherlands              | NL           | 18     |
-| Nicaragua                | NI           | 32     |
+| Nicaragua                | NI           | 28     |
 | Niger                    | NE           | 28     |
 | North Macedonia          | MK           | 19     |
 | Norway                   | NO           | 15     |
@@ -418,6 +418,11 @@ npx tsc
 ```
 
 # Changelog
+
+## v 1.2.1
+
+- Updated Burundi (BI) length 16 -> 27
+- Updated Nicaragua (NI) length 32 -> 28
 
 ## v 1.2.0
 

@@ -1,6 +1,6 @@
 # IBAN Validator
 
-IBAN Validator for your web application forms ([Angular](#angular), [React](#react), Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently [108 countries](#supported-countries) are supported.
+IBAN Validator for your web application forms ([Angular](#angular), [React](#react), Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently [112 countries](#supported-countries) are supported.
 
 ## Content
 
@@ -280,118 +280,119 @@ Check demo applications for usage examples:
  Click here to expand list of supported countries
 </summary>
 
-| Country                  | Country Code | Length |
-| ------------------------ | ------------ | ------ |
-| Albania                  | AL           | 28     |
-| Algeria                  | DZ           | 26     |
-| Andorra                  | AD           | 24     |
-| Angola                   | AO           | 25     |
-| Austria                  | AT           | 20     |
-| Azerbaijan               | AZ           | 28     |
-| Bahrain                  | BH           | 22     |
-| Belarus                  | BY           | 28     |
-| Belgium                  | BE           | 16     |
-| Benin                    | BJ           | 28     |
-| Bosnia and Herzegovina   | BA           | 20     |
-| Brazil                   | BR           | 29     |
-| Bulgaria                 | BG           | 22     |
-| Burundi                  | BI           | 27     |
-| Burkina Faso             | BF           | 28     |
-| Cameroon                 | CM           | 27     |
-| Cape Verde               | CV           | 25     |
-| Central African Republic | CF           | 27     |
-| Chad                     | TD           | 27     |
-| Comoros                  | KM           | 27     |
-| Congo                    | CG           | 27     |
-| Costa Rica               | CR           | 22     |
-| Croatia                  | HR           | 21     |
-| Cyprus                   | CY           | 28     |
-| Czech Republic           | CZ           | 24     |
-| Denmark                  | DK           | 18     |
-| Djibouti                 | DJ           | 27     |
-| Dominican Republic       | DO           | 28     |
-| Egypt                    | EG           | 29     |
-| El Salvador              | SV           | 28     |
-| Equatorial Guinea        | GQ           | 27     |
-| Estonia                  | EE           | 20     |
-| Falkland Islands         | FK           | 18     |
-| Faroe Islands            | FO           | 18     |
-| Finland                  | FI           | 18     |
-| France                   | FR           | 27     |
-| Gabon                    | GA           | 27     |
-| Georgia                  | GE           | 22     |
-| Germany                  | DE           | 22     |
-| Gibraltar                | GI           | 23     |
-| Greece                   | GR           | 27     |
-| Greenland                | GL           | 18     |
-| Guatemala                | GT           | 28     |
-| Guinea-Bissau            | GW           | 25     |
-| Vatican                  | VA           | 22     |
-| Honduras                 | HN           | 28     |
-| Hungary                  | HU           | 28     |
-| Iceland                  | IS           | 26     |
-| Iran                     | IR           | 26     |
-| Iraq                     | IQ           | 23     |
-| Ireland                  | IE           | 22     |
-| Israel                   | IL           | 23     |
-| Italy                    | IT           | 27     |
-| Ivory Coast              | CI           | 28     |
-| Jordan                   | JO           | 30     |
-| Kazakhstan               | KZ           | 20     |
-| Kosovo                   | XK           | 20     |
-| Kuwait                   | KW           | 30     |
-| Latvia                   | LV           | 21     |
-| Lebanon                  | LB           | 28     |
-| Libya                    | LY           | 25     |
-| Liechtenstein            | LI           | 21     |
-| Lithuania                | LT           | 20     |
-| Luxembourg               | LU           | 20     |
-| Madagascar               | MG           | 27     |
-| Mali                     | ML           | 28     |
-| Malta                    | MT           | 31     |
-| Mauritania               | MR           | 27     |
-| Mauritius                | MU           | 30     |
-| Moldova                  | MD           | 24     |
-| Monaco                   | MC           | 27     |
-| Mongolia                 | MN           | 20     |
-| Montenegro               | ME           | 22     |
-| Morocco                  | MA           | 28     |
-| Mozambique               | MZ           | 25     |
-| Netherlands              | NL           | 18     |
-| Nicaragua                | NI           | 28     |
-| Niger                    | NE           | 28     |
-| North Macedonia          | MK           | 19     |
-| Norway                   | NO           | 15     |
-| Pakistan                 | PK           | 24     |
-| Palestine                | PS           | 29     |
-| Poland                   | PL           | 28     |
-| Portugal                 | PT           | 25     |
-| Qatar                    | QA           | 29     |
-| Romania                  | RO           | 24     |
-| Russia                   | RU           | 33     |
-| Saint Lucia              | LC           | 32     |
-| San Marino               | SM           | 27     |
-| Sao Tome and Principe    | ST           | 25     |
-| Saudi Arabia             | SA           | 24     |
-| Senegal                  | SN           | 28     |
-| Serbia                   | RS           | 22     |
-| Seychelles               | SC           | 31     |
-| Slovak Republic          | SK           | 24     |
-| Slovenia                 | SI           | 19     |
-| Somalia                  | SO           | 23     |
-| Spain                    | ES           | 24     |
-| Sudan                    | SD           | 18     |
-| Sultanate of Oman        | OM           | 23     |
-| Sweden                   | SE           | 24     |
-| Switzerland              | CH           | 21     |
-| Timor-Leste              | TL           | 23     |
-| Togo                     | TG           | 28     |
-| Tunisia                  | TN           | 24     |
-| Turkey                   | TR           | 26     |
-| Ukraine                  | UA           | 29     |
-| United Arab Emirates     | AE           | 23     |
-| United Kingdom           | GB           | 22     |
-| Virgin Islands, British  | VG           | 24     |
+| No  | Country                  | Country Code | Length |
+| --- | ------------------------ | ------------ | ------ |
+| 1   | Albania                  | AL           | 28     |
+| 2   | Algeria                  | DZ           | 26     |
+| 3   | Andorra                  | AD           | 24     |
+| 4   | Angola                   | AO           | 25     |
+| 5   | Austria                  | AT           | 20     |
+| 6   | Azerbaijan               | AZ           | 28     |
+| 7   | Bahrain                  | BH           | 22     |
+| 8   | Belarus                  | BY           | 28     |
+| 9   | Belgium                  | BE           | 16     |
+| 10  | Benin                    | BJ           | 28     |
+| 11  | Bosnia and Herzegovina   | BA           | 20     |
+| 12  | Brazil                   | BR           | 29     |
+| 13  | Bulgaria                 | BG           | 22     |
+| 14  | Burundi                  | BI           | 27     |
+| 15  | Burkina Faso             | BF           | 28     |
+| 16  | Cameroon                 | CM           | 27     |
+| 17  | Cape Verde               | CV           | 25     |
+| 18  | Central African Republic | CF           | 27     |
+| 19  | Chad                     | TD           | 27     |
+| 20  | Comoros                  | KM           | 27     |
+| 21  | Congo                    | CG           | 27     |
+| 22  | Costa Rica               | CR           | 22     |
+| 23  | Croatia                  | HR           | 21     |
+| 24  | Cyprus                   | CY           | 28     |
+| 25  | Czech Republic           | CZ           | 24     |
+| 26  | Denmark                  | DK           | 18     |
+| 27  | Djibouti                 | DJ           | 27     |
+| 28  | Dominican Republic       | DO           | 28     |
+| 29  | Egypt                    | EG           | 29     |
+| 30  | El Salvador              | SV           | 28     |
+| 32  | Equatorial Guinea        | GQ           | 27     |
+| 33  | Estonia                  | EE           | 20     |
+| 34  | Falkland Islands         | FK           | 18     |
+| 35  | Faroe Islands            | FO           | 18     |
+| 36  | Finland                  | FI           | 18     |
+| 37  | France                   | FR           | 27     |
+| 38  | Gabon                    | GA           | 27     |
+| 39  | Georgia                  | GE           | 22     |
+| 40  | Germany                  | DE           | 22     |
+| 41  | Gibraltar                | GI           | 23     |
+| 42  | Greece                   | GR           | 27     |
+| 43  | Greenland                | GL           | 18     |
+| 44  | Guatemala                | GT           | 28     |
+| 45  | Guinea-Bissau            | GW           | 25     |
+| 46  | Vatican                  | VA           | 22     |
+| 47  | Honduras                 | HN           | 28     |
+| 48  | Hungary                  | HU           | 28     |
+| 49  | Iceland                  | IS           | 26     |
+| 50  | Iran                     | IR           | 26     |
+| 51  | Iraq                     | IQ           | 23     |
+| 52  | Ireland                  | IE           | 22     |
+| 53  | Israel                   | IL           | 23     |
+| 54  | Italy                    | IT           | 27     |
+| 55  | Ivory Coast              | CI           | 28     |
+| 56  | Jordan                   | JO           | 30     |
+| 57  | Kazakhstan               | KZ           | 20     |
+| 58  | Kosovo                   | XK           | 20     |
+| 59  | Kuwait                   | KW           | 30     |
+| 60  | Latvia                   | LV           | 21     |
+| 61  | Lebanon                  | LB           | 28     |
+| 62  | Libya                    | LY           | 25     |
+| 63  | Liechtenstein            | LI           | 21     |
+| 64  | Lithuania                | LT           | 20     |
+| 65  | Luxembourg               | LU           | 20     |
+| 66  | Madagascar               | MG           | 27     |
+| 67  | Mali                     | ML           | 28     |
+| 68  | Malta                    | MT           | 31     |
+| 69  | Mauritania               | MR           | 27     |
+| 70  | Mauritius                | MU           | 30     |
+| 71  | Moldova                  | MD           | 24     |
+| 72  | Monaco                   | MC           | 27     |
+| 73  | Mongolia                 | MN           | 20     |
+| 74  | Montenegro               | ME           | 22     |
+| 75  | Morocco                  | MA           | 28     |
+| 76  | Mozambique               | MZ           | 25     |
+| 77  | Netherlands              | NL           | 18     |
+| 78  | Nicaragua                | NI           | 28     |
+| 79  | Niger                    | NE           | 28     |
+| 80  | North Macedonia          | MK           | 19     |
+| 81  | Norway                   | NO           | 15     |
+| 82  | Pakistan                 | PK           | 24     |
+| 83  | Palestine                | PS           | 29     |
+| 84  | Poland                   | PL           | 28     |
+| 85  | Portugal                 | PT           | 25     |
+| 86  | Qatar                    | QA           | 29     |
+| 87  | Romania                  | RO           | 24     |
+| 88  | Russia                   | RU           | 33     |
+| 89  | Saint Lucia              | LC           | 32     |
+| 90  | San Marino               | SM           | 27     |
+| 91  | Sao Tome and Principe    | ST           | 25     |
+| 92  | Saudi Arabia             | SA           | 24     |
+| 93  | Senegal                  | SN           | 28     |
+| 94  | Serbia                   | RS           | 22     |
+| 95  | Seychelles               | SC           | 31     |
+| 96  | Slovak Republic          | SK           | 24     |
+| 97  | Slovenia                 | SI           | 19     |
+| 98  | Somalia                  | SO           | 23     |
+| 99  | Spain                    | ES           | 24     |
+| 100 | Sudan                    | SD           | 18     |
+| 101 | Sultanate of Oman        | OM           | 23     |
+| 102 | Sweden                   | SE           | 24     |
+| 103 | Switzerland              | CH           | 21     |
+| 104 | Timor-Leste              | TL           | 23     |
+| 105 | Togo                     | TG           | 28     |
+| 106 | Tunisia                  | TN           | 24     |
+| 107 | Turkey                   | TR           | 26     |
+| 108 | Ukraine                  | UA           | 29     |
+| 109 | United Arab Emirates     | AE           | 23     |
+| 110 | United Kingdom           | GB           | 22     |
+| 111 | Virgin Islands, British  | VG           | 24     |
+| 112 | Yemen                    | YE           | 30     |
 
 </details>
 
@@ -418,6 +419,12 @@ npx tsc
 ```
 
 # Changelog
+
+## v 1.2.2
+
+- Added Support for Yemen
+- Updated validate function to not return countryUnsupported error if input is for example 'YE' country is supported but length is invalid so instead codeLengthInvalid error will be returned
+- Updated tests and docs
 
 ## v 1.2.1
 

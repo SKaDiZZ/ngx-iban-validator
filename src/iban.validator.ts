@@ -29,7 +29,7 @@ function validate(
   const iban = value.toUpperCase().replace(/[^A-Z0-9]/g, "");
   const code = iban.match(/^([A-Z]{2})(\d{2})([A-Z\d]+)$/);
 
-  if (!code || typeof codeLengths[code[1]] === "undefined") {
+  if (code && code[1] && typeof codeLengths[code[1]] === "undefined") {
     return {
       ibanInvalid: true,
       error: {
@@ -40,7 +40,7 @@ function validate(
     };
   }
 
-  if (iban.length !== codeLengths[code[1]]) {
+  if (!code || (iban && iban.length !== codeLengths[code[1]])) {
     return {
       ibanInvalid: true,
       error: {

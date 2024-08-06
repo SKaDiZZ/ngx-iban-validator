@@ -34,6 +34,17 @@ describe("validateIBAN", () => {
     });
   });
 
+  it("should return invalid result when country is supported but length is invalid", () => {
+    const control = { value: "YE" };
+    const result: IBANValidationResult = validateIBAN(control);
+    expect(result.ibanInvalid).toBe(true);
+    expect(result.error).toEqual({
+      countryUnsupported: false,
+      codeLengthInvalid: true,
+      patternInvalid: false,
+    });
+  });
+
   it("should return valid result when IBAN is valid", () => {
     const control = { value: "AT611904300234573201" };
     const result: IBANValidationResult = validateIBAN(control);
@@ -498,5 +509,11 @@ describe("validateIBAN", () => {
 
   it("validateIBAN for Virgin Islands, British VG21PACG0000000123456789 should return null", () => {
     expect(validateIBAN({ value: "VG21PACG0000000123456789" })).toBe(null);
+  });
+
+  it("validateIBAN for Yemen YE09CBKU0000000000001234560101 should return null", () => {
+    expect(validateIBAN({ value: "YE09CBKU0000000000001234560101" })).toBe(
+      null
+    );
   });
 });

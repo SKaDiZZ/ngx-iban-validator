@@ -109,4 +109,5 @@ export const codeLengths: { [key: string]: number } = {
   VA: 22,
   VG: 24,
   XK: 20,
+  YE: 30,
 };

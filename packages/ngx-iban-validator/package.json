@@ -1,5 +1,5 @@
 {
-  "name": "iban-validator-repo",
+  "name": "ngx-iban-validator",
   "version": "1.2.2",
   "repository": {
     "type": "git",
@@ -16,12 +16,14 @@
   "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 108 countries are supported.",
   "main": "dist/index.js",
   "scripts": {
-    "dev:angular": "pnpm --filter angular start",
-    "dev:vue": "pnpm --filter vue dev",
-    "build:package": "pnpm --filter ngx-iban-validator build",
-    "publish": "pnpm --filter ngx-iban-validator publish",
-    "test": "pnpm --filter ngx-iban-validator test"
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles README.md dist/",
+    "preinstall": "npx only-allow pnpm",
+    "build": "pnpm clean && pnpm tsc && pnpm copy-files",
+    "test": "jest",
+    "publish": "pnpm build && pnpm test && pnpm publish --access public"
   },
+  "types": "dist/index.d.ts",
   "keywords": [
     "ngx",
     "iban",
@@ -35,6 +37,13 @@
     "forms",
     "input"
   ],
-  "license": "ISC",
-  "packageManager": "pnpm@10.15.0"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "copyfiles": "^2.4.1",
+    "jest": "^30.0.5",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  }
 }

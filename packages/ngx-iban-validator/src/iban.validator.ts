@@ -1,15 +1,5 @@
 import { codeLengths } from "./code-lengths";
-
-export interface IBANError {
-  countryUnsupported: boolean;
-  codeLengthInvalid: boolean;
-  patternInvalid: boolean;
-}
-
-export interface IBANValidationResult {
-  ibanInvalid: boolean;
-  error: IBANError;
-}
+import { IBANValidationResult } from "./types";
 
 function mod97(digital: number | string) {
   digital = digital.toString();
@@ -85,8 +75,8 @@ function validate(
 }
 
 /**
- * Validate IBAN
- * @param {any} control:string|Partial<{value:string}>
+ * Function to validate an International Bank Account Number (IBAN). It takes a control parameter, which can be either a string or an object with a value property that is a string. The function returns an object with a ibanInvalid property that is true if the IBAN is invalid, and an error object with three properties: countryUnsupported, codeLengthInvalid, and patternInvalid.
+ * @param {any} control string | Partial<{value:string}>
  * @returns {any} IBANValidationResult | null
  */
 export function validateIBAN(
@@ -100,4 +90,5 @@ export function validateIBAN(
       return validate(control.value, true);
     }
   }
+  return null;
 }

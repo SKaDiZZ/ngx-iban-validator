@@ -1,11 +1,12 @@
-import { IBANValidationResult, validateIBAN } from "./iban.validator";
+import { validateIBAN } from "../iban.validator";
+import { IBANValidationResult } from "../types";
 
 describe("validateIBAN", () => {
   it("should return invalid result when country code is unsupported", () => {
     const control = { value: "ZZ11123456789012345678" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: true,
       codeLengthInvalid: false,
       patternInvalid: false,
@@ -14,9 +15,9 @@ describe("validateIBAN", () => {
 
   it("should return invalid result when IBAN length is incorrect", () => {
     const control = { value: "AT1112345678901234567" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
@@ -25,9 +26,9 @@ describe("validateIBAN", () => {
 
   it("should return invalid result when IBAN pattern is incorrect", () => {
     const control = { value: "AT48320000W0D234F864" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: false,
       codeLengthInvalid: false,
       patternInvalid: true,
@@ -36,9 +37,9 @@ describe("validateIBAN", () => {
 
   it("should return invalid result when country is supported but length is invalid", () => {
     const control = { value: "YE" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
@@ -47,14 +48,14 @@ describe("validateIBAN", () => {
 
   it("should return valid result when IBAN is valid", () => {
     const control = { value: "AT611904300234573201" };
-    const result: IBANValidationResult = validateIBAN(control);
+    const result: IBANValidationResult | null = validateIBAN(control);
     expect(result).toBe(null);
   });
 
   it("should return valid result when IBAN is passed as a string and not control value", () => {
     const value = "AT611904300234573201";
-    const result: IBANValidationResult = validateIBAN(value);
-    expect(result.ibanInvalid).toBe(false);
+    const result: IBANValidationResult | null = validateIBAN(value);
+    expect(result?.ibanInvalid).toBe(false);
   });
 
   it("validateIBAN for Albania AL35202111090000000001234567 should return null", () => {

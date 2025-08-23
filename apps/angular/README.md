@@ -1,4 +1,4 @@
-# Angular
+# Angular Demo Application for IBAN Validator
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
 

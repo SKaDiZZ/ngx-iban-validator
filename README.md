@@ -38,7 +38,7 @@ Value can be passed as part of object in this case validation flow will be the s
 ```typescript
 const ibanIsInvalid =
   validateIBAN({
-    value: "AL35202111090000000001234567",
+    value: 'AL35202111090000000001234567',
   }) !== null;
 ```
 
@@ -53,9 +53,9 @@ const ibanIsInvalid = validateIBAN("AL35202111090000000001234567").ibanInvalid;
 ### NodeJS
 
 ```javascript
-const ibanValidator = require("ngx-iban-validator");
+const ibanValidator = require('ngx-iban-validator');
 const ibanIsInvalid = ibanValidator.validateIBAN(
-  "BA393385804800211234"
+  'BA393385804800211234'
 ).ibanInvalid;
 ```
 
@@ -87,19 +87,19 @@ Error object contains more details about validation error. You can display error
 Import validateIBAN function from ngx-iban-validator package into your component file. Add validateIBAN to your form validators array.
 
 ```ts
-import { Component, inject } from "@angular/core";
-import { NgIf } from "@angular/common";
+import { Component, inject } from '@angular/core';
+import { NgIf } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
-} from "@angular/forms";
+} from '@angular/forms';
 
-import { validateIBAN } from "ngx-iban-validator";
+import { validateIBAN } from 'ngx-iban-validator';
 
 @Component({
-  selector: "my-app",
+  selector: 'my-app',
   standalone: true,
   imports: [NgIf, ReactiveFormsModule],
   template: `
@@ -180,14 +180,15 @@ export class App {
 ### React
 
 ```tsx
-import { useState } from "react";
-import {
-  IBANError,
-  IBANValidationResult,
-  validateIBAN,
-} from "ngx-iban-validator/dist/iban.validator";
+import { useState } from 'react';
 
-import "./App.css";
+import {
+  type IBANError,
+  type IBANValidationResult,
+  validateIBAN,
+} from 'ngx-iban-validator';
+
+import './App.css';
 
 function App() {
   const [error, setError] = useState<IBANError | null>(null);
@@ -214,12 +215,12 @@ function App() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const iban = formData.get("iban") as string;
+    const iban = formData.get('iban') as string;
     const validation = validate(iban);
     if (validation) {
-      alert("IBAN is valid");
+      alert(`IBAN: ${iban}, is valid!`);
     } else {
-      alert("IBAN is not valid");
+      alert(`IBAN: ${iban}, is invalid!`);
     }
   };
 

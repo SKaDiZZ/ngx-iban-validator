@@ -18,6 +18,7 @@
   "scripts": {
     "dev:angular": "pnpm --filter angular start",
     "dev:vue": "pnpm --filter vue dev",
+    "dev:react": "pnpm --filter react dev",
     "build:package": "pnpm --filter ngx-iban-validator build",
     "publish": "pnpm --filter ngx-iban-validator publish",
     "test": "pnpm --filter ngx-iban-validator test"

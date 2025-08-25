@@ -18,8 +18,13 @@
   "scripts": {
     "clean": "rimraf dist/",
     "copy-files": "copyfiles README.md LICENCE dist/",
+    "fix": "pnpm run format && pnpm run lint",
+    "format": "biome check --write .",
+    "format:check": "biome check .",
+    "lint": "biome lint --write .",
+    "lint:check": "biome lint .",
     "preinstall": "npx only-allow pnpm",
-    "build": "pnpm clean && pnpm tsc && pnpm copy-files",
+    "build": "pnpm clean && pnpm fix && pnpm tsc && pnpm copy-files",
     "test": "jest",
     "publish": "pnpm build && pnpm test && pnpm publish --access public",
     "prepublish": "pnpm build && pnpm publish --dry-run"
@@ -40,6 +45,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@biomejs/biome": "^2.2.2",
     "@types/jest": "^30.0.0",
     "copyfiles": "^2.4.1",
     "jest": "^30.0.5",

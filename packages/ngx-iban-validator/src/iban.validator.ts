@@ -1,25 +1,21 @@
-import { codeLengths } from "./code-lengths";
-import { IBANValidationResult } from "./types";
+import { CODE_LENGTHS } from "./code-lengths";
+import type { IBANValidationResult } from "./types";
 
 function mod97(digital: number | string) {
   digital = digital.toString();
-  let checksum: number | string = digital.slice(0, 2);
-  let fragment = "";
+  let checksum = parseInt(digital.slice(0, 2), 10);
   for (let offset = 2; offset < digital.length; offset += 7) {
-    fragment = checksum + digital.substring(offset, offset + 7);
+    const fragment = checksum + digital.substring(offset, offset + 7);
     checksum = parseInt(fragment, 10) % 97;
   }
   return checksum;
 }
 
-function validate(
-  value: string,
-  control: boolean
-): IBANValidationResult | null {
+function validate(value: string, control: boolean): IBANValidationResult | null {
   const iban = value.toUpperCase().replace(/[^A-Z0-9]/g, "");
   const code = iban.match(/^([A-Z]{2})(\d{2})([A-Z\d]+)$/);
 
-  if (code && code[1] && typeof codeLengths[code[1]] === "undefined") {
+  if (code?.[1] && typeof CODE_LENGTHS[code[1]] === "undefined") {
     return {
       ibanInvalid: true,
       error: {
@@ -30,7 +26,7 @@ function validate(
     };
   }
 
-  if (!code || (iban && iban.length !== codeLengths[code[1]])) {
+  if (!code || (iban && iban.length !== CODE_LENGTHS[code[1]])) {
     return {
       ibanInvalid: true,
       error: {
@@ -52,9 +48,8 @@ function validate(
     };
   }
 
-  let digits: string = (code[3] + code[1] + code[2]).replace(
-    /[A-Z]/g,
-    (letter: string) => (letter.charCodeAt(0) - 55).toString()
+  const digits: string = (code[3] + code[1] + code[2]).replace(/[A-Z]/g, (letter: string) =>
+    (letter.charCodeAt(0) - 55).toString()
   );
 
   return mod97(digits) === 1
@@ -79,14 +74,12 @@ function validate(
  * @param {any} control string | Partial<{value:string}>
  * @returns {any} IBANValidationResult | null
  */
-export function validateIBAN(
-  control: string | Partial<{ value: string }>
-): IBANValidationResult | null {
+export function validateIBAN(control: string | Partial<{ value: string }>): IBANValidationResult | null {
   if (control) {
     if (typeof control === "string") {
       return validate(control, false);
     }
-    if (control.hasOwnProperty("value") && control.value) {
+    if ("value" in control && control.value) {
       return validate(control.value, true);
     }
   }

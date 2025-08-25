@@ -1,6 +1,6 @@
 {
-  "name": "iban-validator-repo",
-  "version": "1.2.2",
+  "private": true,
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SKaDiZZ/ngx-iban-validator.git"
@@ -14,13 +14,13 @@
     "url": "https://samirkahvedzic.dev"
   },
   "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 108 countries are supported.",
-  "main": "dist/index.js",
   "scripts": {
     "dev:angular": "pnpm --filter angular start",
     "dev:vue": "pnpm --filter vue dev",
     "dev:react": "pnpm --filter react dev",
-    "build:package": "pnpm --filter ngx-iban-validator build",
+    "build": "pnpm --filter ngx-iban-validator build",
     "publish": "pnpm --filter ngx-iban-validator publish",
+    "prepublish": "pnpm --filter ngx-iban-validator prepublish",
     "test": "pnpm --filter ngx-iban-validator test"
   },
   "keywords": [
@@ -36,6 +36,6 @@
     "forms",
     "input"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.15.0"
 }

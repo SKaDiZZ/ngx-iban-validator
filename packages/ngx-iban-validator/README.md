@@ -404,19 +404,19 @@ Check demo applications for usage examples:
 ## Install dependencies
 
 ```bash
-npm i
+pnpm i
 ```
 
 ## Test
 
 ```bash
-npm run test
+pnpm test
 ```
 
 ## Build
 
 ```bash
-npx tsc
+pnpm build
 ```
 
 # Changelog

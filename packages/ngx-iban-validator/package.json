@@ -17,11 +17,12 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles README.md dist/",
+    "copy-files": "copyfiles README.md LICENCE dist/",
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm clean && pnpm tsc && pnpm copy-files",
     "test": "jest",
-    "publish": "pnpm build && pnpm test && pnpm publish --access public"
+    "publish": "pnpm build && pnpm test && pnpm publish --access public",
+    "prepublish": "pnpm build && pnpm publish --dry-run"
   },
   "types": "dist/index.d.ts",
   "keywords": [

@@ -1,0 +1,80 @@
+---
+title: Vue
+description: How to use IBAN Validator in Vue
+---
+
+```ts
+<script setup lang="ts">
+import { ref } from 'vue';
+import { validateIBAN } from 'ngx-iban-validator';
+
+const iban = ref('');
+const validationResult = ref<any>(null);
+
+function validate() {
+  const control = iban.value;
+  validationResult.value = validateIBAN(control);
+}
+
+function alertResult() {
+  alert(`IBAN: ${iban.value}, is valid!`);
+}
+</script>
+
+<template>
+  <div class="page">
+    <form @submit.prevent="alertResult">
+      <h2>NGX IBAN Validator</h2>
+      <div>
+        <input
+          v-model="iban"
+          type="text"
+          placeholder="Enter IBAN"
+          autocomplete="off"
+          @input="() => validate()"
+        />
+        <button :disabled="!validationResult || validationResult?.ibanInvalid">
+          Submit
+        </button>
+      </div>
+      <div class="validation-errors">
+        <small v-if="validationResult?.error && validationResult?.ibanInvalid">
+          <span v-if="validationResult?.error?.countryUnsupported">
+            Country not supported
+          </span>
+          <span v-if="validationResult?.error?.codeLengthInvalid">
+            IBAN Code length is invalid
+          </span>
+          <span v-if="validationResult?.error?.patternInvalid">
+            IBAN Code pattern is invalid
+          </span>
+        </small>
+      </div>
+    </form>
+  </div>
+</template>
+
+<style scoped>
+.page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  text-align: center;
+}
+form {
+  padding: 20px;
+}
+input {
+  padding: 10px;
+}
+button {
+  padding: 10px;
+}
+.validation-errors {
+  color: red;
+}
+</style>
+```

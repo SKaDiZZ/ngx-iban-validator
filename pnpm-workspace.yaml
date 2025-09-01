@@ -7,4 +7,5 @@ onlyBuiltDependencies:
   - esbuild
   - lmdb
   - msgpackr-extract
+  - sharp
   - unrs-resolver

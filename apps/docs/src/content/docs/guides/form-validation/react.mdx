@@ -1,0 +1,88 @@
+---
+title: React
+description: How to use IBAN Validator in React
+---
+
+```tsx
+import { useState } from 'react';
+
+import {
+  type IBANError,
+  type IBANValidationResult,
+  validateIBAN,
+} from 'ngx-iban-validator';
+
+import './App.css';
+
+function App() {
+  const [error, setError] = useState<IBANError | null>(null);
+
+  const validate = (iban: string): boolean => {
+    const validation = validateIBAN({
+      value: iban,
+    });
+    if (validation) {
+      const { ibanInvalid, error }: IBANValidationResult = validation;
+      if (ibanInvalid) {
+        setError(error);
+        return false;
+      } else {
+        setError(null);
+        return true;
+      }
+    } else {
+      setError(null);
+      return true;
+    }
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const iban = formData.get('iban') as string;
+    const validation = validate(iban);
+    if (validation) {
+      alert(`IBAN: ${iban}, is valid!`);
+    } else {
+      alert(`IBAN: ${iban}, is invalid!`);
+    }
+  };
+
+  const handleIbanChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    validate(value);
+  };
+
+  return (
+    <div className="page">
+      <form onSubmit={handleSubmit}>
+        <h2>NGX IBAN Validator</h2>
+        <div>
+          <input
+            type="text"
+            name="iban"
+            placeholder="Enter IBAN"
+            onChange={handleIbanChanged}
+          />
+          <button>Submit</button>
+        </div>
+        <div className="validation-errors">
+          <small hidden={!error}>
+            <span hidden={!error?.countryUnsupported}>
+              Country not supported
+            </span>
+            <span hidden={!error?.codeLengthInvalid}>
+              IBAN Code length is invalid
+            </span>
+            <span hidden={!error?.patternInvalid}>
+              IBAN Code pattern is invalid
+            </span>
+          </small>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default App;
+```

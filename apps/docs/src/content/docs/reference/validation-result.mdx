@@ -1,0 +1,21 @@
+---
+title: Validation Result
+description: A reference page in my new Starlight docs site.
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+export const validationResultCode = `export interface IBANValidationResult {
+  ibanInvalid: boolean;
+  error: IBANError | null;
+}`;
+
+### IBANValidationResult
+
+As a result of validation **IBANValidationResult** object is returned.
+
+- If IBAN is valid as result of validation null is returned.
+
+- If IBAN is invalid error object is returned as a part of [IBANValidationResult](/reference/validation-result) containing more info about error.
+
+<Code code={validationResultCode} lang="ts" />

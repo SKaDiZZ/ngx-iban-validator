@@ -1,0 +1,29 @@
+---
+title: Getting Started
+description: A guide in my new Starlight docs site.
+---
+
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+export const npmInstallCode = `npm install ngx-iban-validator`;
+export const pnpmInstallCode = `pnpm add ngx-iban-validator`;
+export const yarnInstallCode = `yarn add ngx-iban-validator`;
+
+## Install
+
+NGX IBAN Validator can be used in any JS/TS project. It comes without any dependencies and can be used as a standalone function or form validator. To install it in your project, you can use the following commands:
+
+<Tabs>
+  <TabItem label="npm">
+    <Code code={npmInstallCode} lang="sh" />
+  </TabItem>
+  <TabItem label="pnpm">
+    <Code code={pnpmInstallCode} lang="sh" />
+  </TabItem>
+  <TabItem label="yarn">
+    <Code code={yarnInstallCode} lang="sh" />
+  </TabItem>
+</Tabs>
+
+Now you are ready to use the IBAN validator in your project.

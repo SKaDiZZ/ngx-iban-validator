@@ -1,0 +1,97 @@
+---
+title: Angular
+description: How to use IBAN Validator in Angular
+---
+
+Here is example of how to use IBAN Validator in Angular as a form validator.
+
+```ts
+import { Component, inject } from '@angular/core';
+import { NgIf } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+
+import { validateIBAN } from 'ngx-iban-validator';
+
+@Component({
+  selector: 'my-app',
+  standalone: true,
+  imports: [NgIf, ReactiveFormsModule],
+  template: `
+    <div class="page">
+      <form [formGroup]="ibanForm" (ngSubmit)="submit(ibanForm)">
+        <h2>NGX IBAN Validator</h2>
+        <div>
+          <input type="text" formControlName="iban" placeholder="Enter IBAN" />
+          <button [disabled]="ibanForm.invalid">Submit</button>
+        </div>
+        <div class="validation-errors">
+          <small
+            *ngIf="
+                ibanForm.get('iban')?.errors && ibanForm.get('iban')?.errors?.['ibanInvalid']
+              "
+          >
+            <span
+              *ngIf="ibanForm.get('iban')?.errors?.['error']['countryUnsupported']"
+            >
+              Country not supported
+            </span>
+            <span
+              *ngIf="ibanForm.get('iban')?.errors?.['error']['codeLengthInvalid']"
+            >
+              IBAN Code length is invalid
+            </span>
+            <span
+              *ngIf="ibanForm.get('iban')?.errors?.['error']['patternInvalid']"
+            >
+              IBAN Code pattern is invalid
+            </span>
+          </small>
+        </div>
+      </form>
+    </div>
+  `,
+  styles: [
+    `
+      .page {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      form {
+        padding: 20px;
+      }
+      input {
+        padding: 10px;
+      }
+      button {
+        padding: 10px;
+      }
+      .validation-errors {
+        color: red;
+      }
+    `,
+  ],
+})
+export class App {
+  formBuilder = inject(FormBuilder);
+  ibanForm = this.formBuilder.group({
+    iban: [null, [Validators.required, validateIBAN]],
+  });
+  submit(form: FormGroup) {
+    const { valid, value } = form;
+    const { iban } = value;
+    if (valid) {
+      alert(`IBAN: ${iban}, is valid!`);
+    }
+  }
+}
+```

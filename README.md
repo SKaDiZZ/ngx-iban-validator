@@ -16,7 +16,7 @@ IBAN Validator for your web application forms ([Angular](#angular), [React](#rea
   - [Install dependencies](#install-dependencies)
   - [Test](#test)
   - [Build](#build)
-- [Changelog](#changelog)
+- [Changelog](CHANGELOG.md)
 - [Read more](#read-more)
 
 ## Install
@@ -68,7 +68,7 @@ const ibanIsInvalid = ibanValidator.validateIBAN(
 ```typescript
 export interface IBANValidationResult {
   ibanInvalid: boolean;
-  error: IBANError;
+  error: IBANError | null;
 }
 
 export interface IBANError {
@@ -418,71 +418,6 @@ pnpm test
 ```bash
 pnpm build
 ```
-
-# Changelog
-
-## v 1.2.2
-
-- Added Support for Yemen
-- Updated validate function to not return countryUnsupported error if input is for example 'YE' country is supported but length is invalid so instead codeLengthInvalid error will be returned
-- Updated tests and docs
-
-## v 1.2.1
-
-- Updated Burundi (BI) length 16 -> 27
-- Updated Nicaragua (NI) length 32 -> 28
-
-## v 1.2.0
-
-- Updated documentation
-
-## v 1.1.9
-
-- Added support for Sultanate of Oman
-
-## v 1.1.8
-
-- Added support for Falkland Islands
-
-## v 1.1.7
-
-- Added support for Djibouti and Somalia
-
-## v 1.1.6
-
-- Updated error display logic
-- Value can be passed directly as a string or part of the object.
-  - If value is passed as a part of object same logic as for form validation is applied:
-    - If IBAN is valid as result of validation **null** is returned.
-    - If IBAN is invalid and some of the checks fail IBANValidationResult object is returned containing more info about error.
-  - If value is passed as a string:
-    - For valid and invalid IBAN IBANValidationResult object is returned.
-- Return null for valid form field to fix issue with disabling | enabling buttons
-  - Thnx to @pramodEE for reporting the issue
-
-## v 1.1.5
-
-Added additional pattern validation
-Added more tests to improve test coverage
-Added support for new countries: Algeria, Angola, Benin, Burkina Faso, Burundi, Cameroon, Cape Verde, Central African Republic, Chad, Comoros, Congo, Equatorial Guinea, Gabon, Guinea-Bissau, Honduras, Iran, Ivory Coast, Madagascar, Mali, Mongolia, Morocco, Mozambique, Nicaragua, Niger, Russia, Senegal, Togo
-
-## v 1.1.4
-
-Avoid Angular warnings for old CommonJS module usage (see https://angular.io/guide/build#configuring-commonjs-dependencies)
-
-Replaced mocha and chai with JEST for tests
-
-## v 1.1.3
-
-Added support for new countries: Vatican, Libya, Sao Tome and Principe, Sudan
-Updated length for LC Saint Lucia from 30 to 32
-
-Added Tests
-Added Mocha and Chai for testing
-
-## v 1.1.2
-
-Updated length for CR to 22 - @freddy36
 
 ## Read more
 

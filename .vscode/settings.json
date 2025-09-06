@@ -1,6 +1,3 @@
 {
-  "nuxt.isNuxtApp": false,
-  "files.exclude": {
-    "**/.git": false
-  }
+  "nuxt.isNuxtApp": false
 }

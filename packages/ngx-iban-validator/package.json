@@ -27,7 +27,8 @@
     "build": "pnpm clean && pnpm fix && pnpm tsc && pnpm copy-files",
     "test": "jest",
     "publish": "pnpm build && pnpm test && pnpm publish --access public",
-    "prepublish": "pnpm build && pnpm publish --dry-run"
+    "prepublish": "pnpm build && pnpm publish --dry-run",
+    "watch": "pnpm tsc --watch"
   },
   "types": "dist/index.d.ts",
   "keywords": [

@@ -15,14 +15,15 @@
   },
   "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 108 countries are supported.",
   "scripts": {
-    "dev:angular": "pnpm --filter angular start",
-    "dev:vue": "pnpm --filter vue dev",
-    "dev:react": "pnpm --filter react dev",
+    "dev:angular": "pnpm --filter angular start && pnpm watch",
+    "dev:vue": "pnpm --filter vue dev && pnpm watch",
+    "dev:react": "pnpm --filter react dev && pnpm watch",
     "dev:docs": "pnpm --filter docs dev",
     "build": "pnpm --filter ngx-iban-validator build",
     "publish": "pnpm --filter ngx-iban-validator publish",
     "prepublish": "pnpm --filter ngx-iban-validator prepublish",
-    "test": "pnpm --filter ngx-iban-validator test"
+    "test": "pnpm --filter ngx-iban-validator test",
+    "watch": "pnpm --filter ngx-iban-validator watch"
   },
   "keywords": [
     "ngx",

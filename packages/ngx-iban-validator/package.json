@@ -26,7 +26,7 @@
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm clean && pnpm fix && pnpm tsc && pnpm copy-files",
     "test": "jest",
-    "release": "pnpm publish --access public",
+    "release": "pnpm -r publish --no-git-checks --access public",
     "watch": "pnpm tsc --watch"
   },
   "types": "dist/index.d.ts",

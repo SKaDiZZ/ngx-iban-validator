@@ -1,4 +1,4 @@
-export const codeLengths: { [key: string]: number } = {
+export const CODE_LENGTHS: { [key: string]: number } = {
   AD: 24,
   AE: 23,
   AL: 28,

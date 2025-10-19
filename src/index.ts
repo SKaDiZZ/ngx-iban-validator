@@ -1,1 +1,0 @@
-export { validateIBAN } from './iban.validator';

@@ -1,11 +1,12 @@
-import { IBANValidationResult, validateIBAN } from "./iban.validator";
+import { validateIBAN } from "../iban.validator";
+import type { IBANValidationResult } from "../types";
 
 describe("validateIBAN", () => {
   it("should return invalid result when country code is unsupported", () => {
     const control = { value: "ZZ11123456789012345678" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: true,
       codeLengthInvalid: false,
       patternInvalid: false,
@@ -14,9 +15,9 @@ describe("validateIBAN", () => {
 
   it("should return invalid result when IBAN length is incorrect", () => {
     const control = { value: "AT1112345678901234567" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
@@ -25,9 +26,9 @@ describe("validateIBAN", () => {
 
   it("should return invalid result when IBAN pattern is incorrect", () => {
     const control = { value: "AT48320000W0D234F864" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: false,
       codeLengthInvalid: false,
       patternInvalid: true,
@@ -36,9 +37,9 @@ describe("validateIBAN", () => {
 
   it("should return invalid result when country is supported but length is invalid", () => {
     const control = { value: "YE" };
-    const result: IBANValidationResult = validateIBAN(control);
-    expect(result.ibanInvalid).toBe(true);
-    expect(result.error).toEqual({
+    const result: IBANValidationResult | null = validateIBAN(control);
+    expect(result?.ibanInvalid).toBe(true);
+    expect(result?.error).toEqual({
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
@@ -47,14 +48,14 @@ describe("validateIBAN", () => {
 
   it("should return valid result when IBAN is valid", () => {
     const control = { value: "AT611904300234573201" };
-    const result: IBANValidationResult = validateIBAN(control);
+    const result: IBANValidationResult | null = validateIBAN(control);
     expect(result).toBe(null);
   });
 
   it("should return valid result when IBAN is passed as a string and not control value", () => {
     const value = "AT611904300234573201";
-    const result: IBANValidationResult = validateIBAN(value);
-    expect(result.ibanInvalid).toBe(false);
+    const result: IBANValidationResult | null = validateIBAN(value);
+    expect(result?.ibanInvalid).toBe(false);
   });
 
   it("validateIBAN for Albania AL35202111090000000001234567 should return null", () => {
@@ -274,9 +275,7 @@ describe("validateIBAN", () => {
   });
 
   it("validateIBAN for Jordan JO71CBJO0000000000001234567890 should return null", () => {
-    expect(validateIBAN({ value: "JO71CBJO0000000000001234567890" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "JO71CBJO0000000000001234567890" })).toBe(null);
   });
 
   it("validateIBAN for Kazakhstan KZ563190000012344567 should return null", () => {
@@ -288,9 +287,7 @@ describe("validateIBAN", () => {
   });
 
   it("validateIBAN for Kuwait KW81CBKU0000000000001234560101 should return null", () => {
-    expect(validateIBAN({ value: "KW81CBKU0000000000001234560101" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "KW81CBKU0000000000001234560101" })).toBe(null);
   });
 
   it("validateIBAN for Latvia LV97HABA0012345678910 should return null", () => {
@@ -326,9 +323,7 @@ describe("validateIBAN", () => {
   });
 
   it("validateIBAN for Malta MT31MALT01100000000000000000123 should return null", () => {
-    expect(validateIBAN({ value: "MT31MALT01100000000000000000123" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "MT31MALT01100000000000000000123" })).toBe(null);
   });
 
   it("validateIBAN for Mauritania MR1300020001010000123456753 should return null", () => {
@@ -336,9 +331,7 @@ describe("validateIBAN", () => {
   });
 
   it("validateIBAN for Mauritius MU43BOMM0101123456789101000MUR should return null", () => {
-    expect(validateIBAN({ value: "MU43BOMM0101123456789101000MUR" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "MU43BOMM0101123456789101000MUR" })).toBe(null);
   });
 
   it("validateIBAN for Moldova MD21EX000000000001234567 should return null", () => {
@@ -410,15 +403,11 @@ describe("validateIBAN", () => {
   });
 
   it("validateIBAN for Russia RU0204452560040702810412345678901 should return null", () => {
-    expect(validateIBAN({ value: "RU0204452560040702810412345678901" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "RU0204452560040702810412345678901" })).toBe(null);
   });
 
   it("validateIBAN for Saint Lucia LC14BOSL123456789012345678901234 should return null", () => {
-    expect(validateIBAN({ value: "LC14BOSL123456789012345678901234" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "LC14BOSL123456789012345678901234" })).toBe(null);
   });
 
   it("validateIBAN for San Marino SM76P0854009812123456789123 should return null", () => {
@@ -442,9 +431,7 @@ describe("validateIBAN", () => {
   });
 
   it("validateIBAN for Seychelles	SC52BAHL01031234567890123456USD should return null", () => {
-    expect(validateIBAN({ value: "SC52BAHL01031234567890123456USD" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "SC52BAHL01031234567890123456USD" })).toBe(null);
   });
 
   it("validateIBAN for Slovak Republic SK8975000000000012345671 should return null", () => {
@@ -512,8 +499,6 @@ describe("validateIBAN", () => {
   });
 
   it("validateIBAN for Yemen YE09CBKU0000000000001234560101 should return null", () => {
-    expect(validateIBAN({ value: "YE09CBKU0000000000001234560101" })).toBe(
-      null
-    );
+    expect(validateIBAN({ value: "YE09CBKU0000000000001234560101" })).toBe(null);
   });
 });

@@ -1,0 +1,21 @@
+.page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  text-align: center;
+}
+form {
+  padding: 20px;
+}
+input {
+  padding: 10px;
+}
+button {
+  padding: 10px;
+}
+.validation-errors {
+  color: red;
+}

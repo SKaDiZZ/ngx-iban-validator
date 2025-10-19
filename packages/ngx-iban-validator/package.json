@@ -1,0 +1,57 @@
+{
+  "name": "ngx-iban-validator",
+  "version": "1.2.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKaDiZZ/ngx-iban-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SKaDiZZ/ngx-iban-validator/issues"
+  },
+  "author": {
+    "name": "Samir Kahvedzic",
+    "email": "akirapowered@gmail.com",
+    "url": "https://samirkahvedzic.dev"
+  },
+  "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 108 countries are supported.",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles README.md LICENCE dist/",
+    "fix": "pnpm run format && pnpm run lint",
+    "format": "biome check --write .",
+    "format:check": "biome check .",
+    "lint": "biome lint --write .",
+    "lint:check": "biome lint .",
+    "preinstall": "npx only-allow pnpm",
+    "build": "pnpm clean && pnpm fix && pnpm tsc && pnpm copy-files",
+    "test": "jest",
+    "publish": "pnpm build && pnpm test && pnpm publish --access public",
+    "prepublish": "pnpm build && pnpm publish --dry-run",
+    "watch": "pnpm tsc --watch"
+  },
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "ngx",
+    "iban",
+    "validator",
+    "iban-validator",
+    "angular",
+    "angularjs",
+    "react",
+    "vue",
+    "vuejs",
+    "forms",
+    "input"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.2",
+    "@types/jest": "^30.0.0",
+    "copyfiles": "^2.4.1",
+    "jest": "^30.0.5",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,36 @@
+---
+title: Error Response
+description: A reference page in my new Starlight docs site.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+
+export const ibanErrorCode = `export interface IBANError {
+  countryUnsupported: boolean;
+  codeLengthInvalid: boolean;
+  patternInvalid: boolean;
+}`;
+
+### IBANError
+
+If IBAN is invalid and some of the checks fail `error` object is returned as a part of [IBANValidationResult](/reference/validation-result) containing more info about error.
+
+<Code code={ibanErrorCode} lang="ts" />
+
+### Checks
+
+Currently three checks are performed by IBAN Validator:
+
+### Country Support
+
+- **countryUnsupported**: <Badge text="boolean" variant="note" /> -
+  `false` default `true` if country is not supported by IBAN Validator. Check supported countries [here](/reference/supported-countries).
+
+### Length and Code
+
+- **codeLengthInvalid**: <Badge text="boolean" variant="note" /> - `false` default `true` if IBAN code length is invalid.
+
+### Pattern
+
+- **patternInvalid**: <Badge text="boolean" variant="note" /> - `false` default `true` if IBAN pattern is invalid.

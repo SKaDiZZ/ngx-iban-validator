@@ -1,0 +1,11 @@
+packages:
+  - packages/*
+  - apps/*
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - lmdb
+  - msgpackr-extract
+  - sharp
+  - unrs-resolver

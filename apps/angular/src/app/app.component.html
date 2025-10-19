@@ -1,0 +1,35 @@
+<div class="page">
+  <form [formGroup]="ibanForm" (ngSubmit)="submit(ibanForm)">
+    <h2>NGX IBAN Validator</h2>
+    <div>
+      <input
+        type="text"
+        formControlName="iban"
+        placeholder="Enter IBAN"
+        autocomplete="off"
+      />
+      <button [disabled]="ibanForm.invalid">Submit</button>
+    </div>
+    <div class="validation-errors">
+      <small
+        *ngIf="
+                ibanForm.get('iban')?.errors && ibanForm.get('iban')?.errors?.['ibanInvalid']
+              "
+      >
+        <span
+          *ngIf="ibanForm.get('iban')?.errors?.['error']['countryUnsupported']"
+        >
+          Country not supported
+        </span>
+        <span
+          *ngIf="ibanForm.get('iban')?.errors?.['error']['codeLengthInvalid']"
+        >
+          IBAN Code length is invalid
+        </span>
+        <span *ngIf="ibanForm.get('iban')?.errors?.['error']['patternInvalid']">
+          IBAN Code pattern is invalid
+        </span>
+      </small>
+    </div>
+  </form>
+</div>

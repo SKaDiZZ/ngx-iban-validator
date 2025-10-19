@@ -20,7 +20,7 @@
     "dev:react": "pnpm --filter react dev && pnpm watch",
     "dev:docs": "pnpm --filter docs dev",
     "build": "pnpm --filter ngx-iban-validator build",
-    "publish": "pnpm --filter ngx-iban-validator publish",
+    "release": "pnpm --filter ngx-iban-validator release",
     "test": "pnpm --filter ngx-iban-validator test",
     "watch": "pnpm --filter ngx-iban-validator watch"
   },

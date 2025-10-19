@@ -25,8 +25,14 @@ To contribute to ngx-iban-validator, you need to have [Node.js](https://nodejs.o
 
 ## Install dependencies
 
-```bash
+```sh
 pnpm i
+```
+
+## Buld library at least once so that it can be used by demo apps
+
+```sh
+pnpm build
 ```
 
 ## Adding a new country
@@ -53,14 +59,34 @@ export const CODE_LENGTHS = {
 
 ## Run tests
 
-```bash
+```sh
 pnpm test
 ```
 
 ### Building the library
 
-```bash
+```sh
 pnpm build
+```
+
+### Testing inside demo apps
+
+#### Angular
+
+```sh
+pnpm dev:agnular
+```
+
+#### Vue
+
+```sh
+pnpm dev:vue
+```
+
+####
+
+```sh
+pnpm dev:react
 ```
 
 ## Submitting Changes

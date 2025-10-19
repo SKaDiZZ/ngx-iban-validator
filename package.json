@@ -21,7 +21,6 @@
     "dev:docs": "pnpm --filter docs dev",
     "build": "pnpm --filter ngx-iban-validator build",
     "publish": "pnpm --filter ngx-iban-validator publish",
-    "prepublish": "pnpm --filter ngx-iban-validator prepublish",
     "test": "pnpm --filter ngx-iban-validator test",
     "watch": "pnpm --filter ngx-iban-validator watch"
   },

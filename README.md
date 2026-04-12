@@ -107,7 +107,6 @@ Import validateIBAN function from ngx-iban-validator package into your component
 
 ```ts
 import { Component, inject } from '@angular/core';
-import { NgIf } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
@@ -120,7 +119,7 @@ import { validateIBAN } from 'ngx-iban-validator';
 @Component({
   selector: 'my-app',
   standalone: true,
-  imports: [NgIf, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   template: `
     <div class="page">
       <form [formGroup]="ibanForm" (ngSubmit)="submit(ibanForm)">
@@ -130,27 +129,19 @@ import { validateIBAN } from 'ngx-iban-validator';
           <button [disabled]="ibanForm.invalid">Submit</button>
         </div>
         <div class="validation-errors">
-          <small
-            *ngIf="
-                ibanForm.get('iban')?.errors && ibanForm.get('iban')?.errors?.['ibanInvalid']
-              "
-          >
-            <span
-              *ngIf="ibanForm.get('iban')?.errors?.['error']['countryUnsupported']"
-            >
-              Country not supported
-            </span>
-            <span
-              *ngIf="ibanForm.get('iban')?.errors?.['error']['codeLengthInvalid']"
-            >
-              IBAN Code length is invalid
-            </span>
-            <span
-              *ngIf="ibanForm.get('iban')?.errors?.['error']['patternInvalid']"
-            >
-              IBAN Code pattern is invalid
-            </span>
-          </small>
+          @if (ibanForm.get('iban')?.errors?.['ibanInvalid']) {
+            <small>
+              @if (ibanForm.get('iban')?.errors?.['error']['countryUnsupported']) {
+                <span>Country not supported</span>
+              }
+              @if (ibanForm.get('iban')?.errors?.['error']['codeLengthInvalid']) {
+                <span>IBAN Code length is invalid</span>
+              }
+              @if (ibanForm.get('iban')?.errors?.['error']['patternInvalid']) {
+                <span>IBAN Code pattern is invalid</span>
+              }
+            </small>
+          }
         </div>
       </form>
     </div>

@@ -5,6 +5,17 @@ All notable changes to the **NGX IBAN Validator** project will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.4] - 2026-04-12
+
+### Fixed
+
+- **Algeria**: (DZ) length 26 -> 24
+
+### Updated
+
+- **Docs**: Updated Angular example in README to use the new @if syntax.
+- **Demo apps - Angular**: Updated to Angular 20.3.18
+
 ## [1.2.3] - 2024-06-08
 
 - Switch to pnpm as default package manager, setup monorepo structure, added demo apps and docs to repo

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgIf } from '@angular/common';
+
 
 import {FormBuilder, Validators, ReactiveFormsModule, FormGroup} from '@angular/forms';
 
@@ -7,7 +7,7 @@ import { validateIBAN } from "ngx-iban-validator";
 
 @Component({
   selector: 'app-root',
-  imports: [NgIf,ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

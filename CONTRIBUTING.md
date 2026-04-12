@@ -74,7 +74,7 @@ pnpm build
 #### Angular
 
 ```sh
-pnpm dev:agnular
+pnpm dev:angular
 ```
 
 #### Vue

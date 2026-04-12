@@ -7,7 +7,7 @@
 | No  | Country                  | Country Code | Length |
 | --- | ------------------------ | ------------ | ------ |
 | 1   | Albania                  | AL           | 28     |
-| 2   | Algeria                  | DZ           | 26     |
+| 2   | Algeria                  | DZ           | 24     |
 | 3   | Andorra                  | AD           | 24     |
 | 4   | Angola                   | AO           | 25     |
 | 5   | Austria                  | AT           | 20     |

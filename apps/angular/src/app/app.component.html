@@ -7,29 +7,34 @@
         formControlName="iban"
         placeholder="Enter IBAN"
         autocomplete="off"
-      />
-      <button [disabled]="ibanForm.invalid">Submit</button>
-    </div>
-    <div class="validation-errors">
-      <small
-        *ngIf="
-                ibanForm.get('iban')?.errors && ibanForm.get('iban')?.errors?.['ibanInvalid']
-              "
-      >
-        <span
-          *ngIf="ibanForm.get('iban')?.errors?.['error']['countryUnsupported']"
-        >
-          Country not supported
-        </span>
-        <span
-          *ngIf="ibanForm.get('iban')?.errors?.['error']['codeLengthInvalid']"
-        >
-          IBAN Code length is invalid
-        </span>
-        <span *ngIf="ibanForm.get('iban')?.errors?.['error']['patternInvalid']">
-          IBAN Code pattern is invalid
-        </span>
-      </small>
-    </div>
-  </form>
-</div>
+        />
+        <button [disabled]="ibanForm.invalid">Submit</button>
+      </div>
+      <div class="validation-errors">
+        @if (
+          ibanForm.get('iban')?.errors && ibanForm.get('iban')?.errors?.['ibanInvalid']
+          ) {
+          <small
+            >
+            @if (ibanForm.get('iban')?.errors?.['error']['countryUnsupported']) {
+              <span
+                >
+                Country not supported
+              </span>
+            }
+            @if (ibanForm.get('iban')?.errors?.['error']['codeLengthInvalid']) {
+              <span
+                >
+                IBAN Code length is invalid
+              </span>
+            }
+            @if (ibanForm.get('iban')?.errors?.['error']['patternInvalid']) {
+              <span>
+                IBAN Code pattern is invalid
+              </span>
+            }
+          </small>
+        }
+      </div>
+    </form>
+  </div>

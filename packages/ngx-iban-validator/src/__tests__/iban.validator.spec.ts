@@ -62,8 +62,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "AL35202111090000000001234567" })).toBe(null);
   });
 
-  it("validateIBAN for Algeria DZ580002100001113000000570 should return null", () => {
-    expect(validateIBAN({ value: "DZ580002100001113000000570" })).toBe(null);
+  it("validateIBAN for Algeria DZ1400100725020000018457 should return null", () => {
+    expect(validateIBAN({ value: "DZ1400100725020000018457" })).toBe(null);
   });
 
   it("validateIBAN for Andorra AD1400080001001234567890 should return null", () => {

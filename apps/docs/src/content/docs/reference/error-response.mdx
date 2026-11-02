@@ -10,6 +10,7 @@ export const ibanErrorCode = `export interface IBANError {
   countryUnsupported: boolean;
   codeLengthInvalid: boolean;
   patternInvalid: boolean;
+  checksumInvalid: boolean;
 }`;
 
 ### IBANError
@@ -20,7 +21,7 @@ If IBAN is invalid and some of the checks fail `error` object is returned as a p
 
 ### Checks
 
-Currently three checks are performed by IBAN Validator:
+Currently four checks are performed by IBAN Validator:
 
 ### Country Support
 
@@ -33,4 +34,8 @@ Currently three checks are performed by IBAN Validator:
 
 ### Pattern
 
-- **patternInvalid**: <Badge text="boolean" variant="note" /> - `false` default `true` if IBAN pattern is invalid.
+- **patternInvalid**: <Badge text="boolean" variant="note" /> - `false` default `true` if IBAN pattern is invalid, for example when the check digits are not numbers. It is also `true` when the checksum fails, for backwards compatibility.
+
+### Checksum
+
+- **checksumInvalid**: <Badge text="boolean" variant="note" /> - `false` default `true` if the IBAN mod-97 checksum is invalid.

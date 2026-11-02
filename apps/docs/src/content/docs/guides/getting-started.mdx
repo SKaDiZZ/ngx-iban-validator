@@ -27,3 +27,14 @@ NGX IBAN Validator can be used in any JS/TS project. It comes without any depend
 </Tabs>
 
 Now you are ready to use the IBAN validator in your project.
+
+## Quick check
+
+If you only need to know whether an IBAN is valid, use `isValidIBAN`. Spaces, dashes and lowercase letters are ignored.
+
+<Code code={`import { isValidIBAN } from 'ngx-iban-validator';
+
+isValidIBAN('AL35 2021 1109 0000 0000 0123 4567'); // true
+isValidIBAN('AL35202111090000000001234568'); // false`} lang="ts" />
+
+The package ships both ES modules and CommonJS, so `require('ngx-iban-validator')` works in Node.js too.

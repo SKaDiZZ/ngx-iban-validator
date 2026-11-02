@@ -49,7 +49,7 @@
     "check:iban": "node ../../scripts/check-iban-structure.js",
     "update:iban": "node ../../scripts/check-iban-structure.js --update",
     "preinstall": "npx only-allow pnpm",
-    "release": "pnpm publish --no-git-checks --access public"
+    "release": "npm publish --access public"
   },
   "keywords": [
     "ngx",

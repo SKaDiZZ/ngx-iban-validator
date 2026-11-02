@@ -65,4 +65,4 @@ After an update, the script runs the library's biome format and then `pnpm test`
 
 ## Release
 
-The `npm-publish.yaml` workflow runs when a GitHub release is created. It runs `pnpm install --frozen-lockfile`, `pnpm test`, `pnpm build`, `pnpm test:dist` and `pnpm release` (`pnpm publish --no-git-checks --access public` inside the package). Bump the version in `packages/ngx-iban-validator/package.json` and update both `CHANGELOG.md` files (the root one and the package one).
+The `npm-publish.yaml` workflow runs when a GitHub release is created. It runs `pnpm install --frozen-lockfile`, `pnpm test`, `pnpm build`, `pnpm test:dist` and `pnpm release` (`npm publish --access public` inside the package). It authenticates with npm trusted publishing (OIDC, `id-token: write`), not a token. The trusted publisher configured on npmjs.com must name `npm-publish.yaml`, so renaming the workflow file breaks publishing. Bump the version in `packages/ngx-iban-validator/package.json` and update both `CHANGELOG.md` files (the root one and the package one).

@@ -1,0 +1,25 @@
+name: Check IBAN structures
+
+# Compares supported countries and lengths with https://www.iban.com/structure.
+# Fails when a country is added or changed upstream, or when package files disagree with each other.
+# Run `pnpm update:iban` locally to sync.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Check IBAN structures
+        run: node scripts/check-iban-structure.js --ci

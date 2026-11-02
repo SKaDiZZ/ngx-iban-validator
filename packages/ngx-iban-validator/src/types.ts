@@ -2,6 +2,7 @@ export interface IBANError {
   countryUnsupported: boolean;
   codeLengthInvalid: boolean;
   patternInvalid: boolean;
+  checksumInvalid: boolean;
 }
 
 export interface IBANValidationResult {

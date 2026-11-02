@@ -10,6 +10,7 @@ describe("validateIBAN", () => {
       countryUnsupported: true,
       codeLengthInvalid: false,
       patternInvalid: false,
+      checksumInvalid: false,
     });
   });
 
@@ -21,6 +22,7 @@ describe("validateIBAN", () => {
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
+      checksumInvalid: false,
     });
   });
 
@@ -32,6 +34,7 @@ describe("validateIBAN", () => {
       countryUnsupported: false,
       codeLengthInvalid: false,
       patternInvalid: true,
+      checksumInvalid: true,
     });
   });
 
@@ -43,6 +46,7 @@ describe("validateIBAN", () => {
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
+      checksumInvalid: false,
     });
   });
 

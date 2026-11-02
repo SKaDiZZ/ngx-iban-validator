@@ -1,2 +1,2 @@
-export { validateIBAN } from "./iban.validator";
-export { IBANError, IBANValidationResult } from "./types";
+export { isValidIBAN, validateIBAN } from "./iban.validator.js";
+export type { IBANError, IBANValidationResult } from "./types.js";

@@ -35,13 +35,25 @@ pnpm i
 pnpm build
 ```
 
-## Adding a new country
+## Checking and Synchronizing IBAN Structures
 
-If you want to add a new country to ngx-iban-validator, you can do so by editing code-lengths.ts file.
+You can automatically check and compare the package's supported IBAN codes with official ISO standards at [iban.com/structure](https://www.iban.com/structure):
+
+```sh
+# Check differences without modifying files
+pnpm check:iban
+
+# Automatically sync package code, documentation, and tests
+pnpm update:iban
+```
+
+## Adding a new country manually
+
+If you want to add a new country to ngx-iban-validator manually, you can do so by editing code-lengths.ts file.
 
 Add a new property to the `CODE_LENGTHS` object, with the following structure:
 
-- `code`: **string** - The name of the country
+- `code`: **string** - The country code (e.g. `AD`)
 - `length`: **number** - The length of the IBAN
 
 ###
@@ -55,7 +67,7 @@ export const CODE_LENGTHS = {
 
 ## Adding a new test
 
-[JEST](https://jestjs.io) testing framework is used for testing. Once you have added the new country, you need to add a tests for a new country. Add a new test to the `iban.validator.spec.ts` file.
+[JEST](https://jestjs.io) testing framework is used for testing. Once you have added the new country, you need to add a test for a new country. Add a new test to the `iban.validator.spec.ts` file.
 
 ## Run tests
 

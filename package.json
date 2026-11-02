@@ -13,7 +13,7 @@
     "email": "akirapowered@gmail.com",
     "url": "https://samirkahvedzic.dev"
   },
-  "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 108 countries are supported.",
+  "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 111 countries are supported.",
   "scripts": {
     "dev:angular": "pnpm --filter angular start && pnpm watch",
     "dev:vue": "pnpm --filter vue dev && pnpm watch",
@@ -22,6 +22,9 @@
     "build": "pnpm --filter ngx-iban-validator build",
     "release": "pnpm --filter ngx-iban-validator release",
     "test": "pnpm --filter ngx-iban-validator test",
+    "test:script": "node --test scripts/check-iban-structure.test.js",
+    "check:iban": "node scripts/check-iban-structure.js",
+    "update:iban": "node scripts/check-iban-structure.js --update",
     "watch": "pnpm --filter ngx-iban-validator watch"
   },
   "keywords": [

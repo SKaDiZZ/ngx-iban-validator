@@ -1,6 +1,6 @@
 # IBAN Validator
 
-IBAN Validator for your web application forms ([Angular](#angular), [React](#react), Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently [112 countries](#supported-countries) are supported.
+IBAN Validator for your web application forms ([Angular](#angular), [React](#react), Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently [111 countries](#supported-countries) are supported.
 
 ## Features
 

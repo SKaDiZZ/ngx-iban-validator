@@ -1,6 +1,6 @@
 # IBAN Validator
 
-IBAN Validator for your web application forms ([Angular](#angular), [React](#react), Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently [112 countries](#supported-countries) are supported.
+IBAN Validator for your web application forms ([Angular](#angular), [React](#react), Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently [111 countries](#supported-countries) are supported.
 
 ## Features
 
@@ -69,13 +69,29 @@ Value can be passed as a string:
 const ibanIsInvalid = validateIBAN("AL35202111090000000001234567").ibanInvalid;
 ```
 
+If you only need a yes/no answer, use `isValidIBAN`:
+
+```typescript
+import { isValidIBAN } from 'ngx-iban-validator';
+
+isValidIBAN('AL35 2021 1109 0000 0000 0123 4567'); // true
+isValidIBAN('AL35202111090000000001234568'); // false
+```
+
+Spaces, dashes and lowercase letters are ignored by both functions.
+
 ### NodeJS
 
+The package ships both ES modules and CommonJS.
+
 ```javascript
-const ibanValidator = require('ngx-iban-validator');
-const ibanIsInvalid = ibanValidator.validateIBAN(
-  'BA393385804800211234'
-).ibanInvalid;
+// ES modules
+import { validateIBAN } from 'ngx-iban-validator';
+
+// CommonJS
+const { validateIBAN } = require('ngx-iban-validator');
+
+const ibanIsInvalid = validateIBAN('BA393385804800211234').ibanInvalid;
 ```
 
 ## Error Response
@@ -94,10 +110,16 @@ export interface IBANError {
   countryUnsupported: boolean;
   codeLengthInvalid: boolean;
   patternInvalid: boolean;
+  checksumInvalid: boolean;
 }
 ```
 
 Error object contains more details about validation error. You can display errors easily as with any other validator.
+
+- `countryUnsupported`: the country code is not supported.
+- `codeLengthInvalid`: the IBAN length does not match the country.
+- `patternInvalid`: the value is not shaped like an IBAN, for example the check digits are not numbers. Also `true` when the checksum fails, for backwards compatibility.
+- `checksumInvalid`: the mod-97 checksum failed.
 
 ## Use as a form validator
 

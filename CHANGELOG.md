@@ -5,6 +5,25 @@ All notable changes to the **NGX IBAN Validator** project will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-11-02
+
+### Added
+
+- **`isValidIBAN(value)`**: returns `true` or `false` for a string IBAN.
+- **`checksumInvalid`** error flag, set when the mod-97 checksum fails. `patternInvalid` is still set as well for backwards compatibility. Tests that compare the whole error object with `toEqual` need to include the new field.
+- **CommonJS build**: the package now ships ES modules and CommonJS with an `exports` map, so `require('ngx-iban-validator')` and `import` both work in Node.js.
+
+### Fixed
+
+- **Node.js**: importing the package in plain Node.js failed with `ERR_MODULE_NOT_FOUND`.
+- **Error reporting**: values that don't start with a two-letter country code, or whose check digits aren't numbers, now report `patternInvalid` instead of `codeLengthInvalid`. An unsupported country code is now reported as `countryUnsupported` even if the rest of the value is malformed.
+- **Package contents**: only `dist`, `README.md` and `LICENCE` are published.
+
+### Updated
+
+- **Types**: `IBANError` and `IBANValidationResult` are exported as types only.
+- **CI**: tests, lint and a built-package smoke test run on every pull request. A weekly workflow checks supported countries against iban.com.
+
 ## [1.2.4] - 2026-04-12
 
 ### Fixed

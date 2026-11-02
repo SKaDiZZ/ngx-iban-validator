@@ -1,6 +1,6 @@
 {
   "name": "ngx-iban-validator",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SKaDiZZ/ngx-iban-validator.git"
@@ -13,23 +13,44 @@
     "email": "akirapowered@gmail.com",
     "url": "https://samirkahvedzic.dev"
   },
-  "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 108 countries are supported.",
-  "main": "dist/index.js",
+  "description": "IBAN Validator for your web application forms (Angular, React, Vue, ...), comes without any dependencies and can be used as a standalone function in any JS project. It can perform format, digit and length IBAN validations. Currently 111 countries are supported.",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles README.md LICENCE dist/",
+    "build": "pnpm clean && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node scripts/write-dist-package-json.mjs",
+    "watch": "node scripts/write-dist-package-json.mjs && tsc -p tsconfig.json --watch",
+    "dev": "pnpm watch",
+    "test": "jest",
+    "test:dist": "node scripts/smoke-test-dist.cjs",
     "fix": "pnpm run format && pnpm run lint",
     "format": "biome check --write .",
     "format:check": "biome check .",
     "lint": "biome lint --write .",
     "lint:check": "biome lint .",
+    "check:iban": "node ../../scripts/check-iban-structure.js",
+    "update:iban": "node ../../scripts/check-iban-structure.js --update",
     "preinstall": "npx only-allow pnpm",
-    "build": "pnpm clean && pnpm fix && pnpm tsc && pnpm copy-files",
-    "test": "jest",
-    "release": "pnpm publish --no-git-checks --access public",
-    "watch": "pnpm tsc --watch"
+    "release": "pnpm publish --no-git-checks --access public"
   },
-  "types": "dist/index.d.ts",
   "keywords": [
     "ngx",
     "iban",
@@ -47,7 +68,6 @@
   "devDependencies": {
     "@biomejs/biome": "^2.2.2",
     "@types/jest": "^30.0.0",
-    "copyfiles": "^2.4.1",
     "jest": "^30.0.5",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.4.1",

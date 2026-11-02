@@ -10,6 +10,7 @@ describe("validateIBAN", () => {
       countryUnsupported: true,
       codeLengthInvalid: false,
       patternInvalid: false,
+      checksumInvalid: false,
     });
   });
 
@@ -21,6 +22,7 @@ describe("validateIBAN", () => {
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
+      checksumInvalid: false,
     });
   });
 
@@ -32,6 +34,7 @@ describe("validateIBAN", () => {
       countryUnsupported: false,
       codeLengthInvalid: false,
       patternInvalid: true,
+      checksumInvalid: true,
     });
   });
 
@@ -43,6 +46,7 @@ describe("validateIBAN", () => {
       countryUnsupported: false,
       codeLengthInvalid: true,
       patternInvalid: false,
+      checksumInvalid: false,
     });
   });
 
@@ -78,8 +82,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "AT483200000012345864" })).toBe(null);
   });
 
-  it("validateIBAN for Azerbaijan AZ96AZEJ00000000001234567890 should return null", () => {
-    expect(validateIBAN({ value: "AZ96AZEJ00000000001234567890" })).toBe(null);
+  it("validateIBAN for Azerbaijan AZ77VTBA00000000001234567890 should return null", () => {
+    expect(validateIBAN({ value: "AZ77VTBA00000000001234567890" })).toBe(null);
   });
 
   it("validateIBAN for Bahrain BH02CITI00001077181611 should return null", () => {
@@ -98,31 +102,31 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "BJ66BJ0610100100144390000769" })).toBe(null);
   });
 
-  it("validateIBAN for Bosnia and Herzegovina	BA393385804800211234 should return null", () => {
+  it("validateIBAN for Bosnia and Herzegovina BA393385804800211234 should return null", () => {
     expect(validateIBAN({ value: "BA393385804800211234" })).toBe(null);
   });
 
-  it("validateIBAN for Brazil	BR1500000000000010932840814P2 should return null", () => {
+  it("validateIBAN for Brazil BR1500000000000010932840814P2 should return null", () => {
     expect(validateIBAN({ value: "BR1500000000000010932840814P2" })).toBe(null);
   });
 
-  it("validateIBAN for Bulgaria	BG18RZBB91550123456789 should return null", () => {
-    expect(validateIBAN({ value: "BG18RZBB91550123456789" })).toBe(null);
-  });
-
-  it("validateIBAN for Burundi BI1320001100010000123456789 should return null", () => {
-    expect(validateIBAN({ value: "BI1320001100010000123456789" })).toBe(null);
+  it("validateIBAN for Bulgaria BG19STSA93000123456789 should return null", () => {
+    expect(validateIBAN({ value: "BG19STSA93000123456789" })).toBe(null);
   });
 
   it("validateIBAN for Burkina Faso BF42BF0840101300463574000390 should return null", () => {
     expect(validateIBAN({ value: "BF42BF0840101300463574000390" })).toBe(null);
   });
 
-  it("validateIBAN for Cameroon	CM2110002000300277976315008 should return null", () => {
+  it("validateIBAN for Burundi BI1320001100010000123456789 should return null", () => {
+    expect(validateIBAN({ value: "BI1320001100010000123456789" })).toBe(null);
+  });
+
+  it("validateIBAN for Cameroon CM2110002000300277976315008 should return null", () => {
     expect(validateIBAN({ value: "CM2110002000300277976315008" })).toBe(null);
   });
 
-  it("validateIBAN for Cape Verde	CV64000500000020108215144 should return null", () => {
+  it("validateIBAN for Cape Verde CV64000500000020108215144 should return null", () => {
     expect(validateIBAN({ value: "CV64000500000020108215144" })).toBe(null);
   });
 
@@ -142,7 +146,7 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "CG3930011000101013451300019" })).toBe(null);
   });
 
-  it("validateIBAN for Costa Rica	CR23015108410026012345 should return null", () => {
+  it("validateIBAN for Costa Rica CR23015108410026012345 should return null", () => {
     expect(validateIBAN({ value: "CR23015108410026012345" })).toBe(null);
   });
 
@@ -154,7 +158,7 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "CY21002001950000357001234567" })).toBe(null);
   });
 
-  it("validateIBAN for Czech Republic	CZ5508000000001234567899 should return null", () => {
+  it("validateIBAN for Czech Republic CZ5508000000001234567899 should return null", () => {
     expect(validateIBAN({ value: "CZ5508000000001234567899" })).toBe(null);
   });
 
@@ -190,8 +194,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "FK12SC987654321098" })).toBe(null);
   });
 
-  it("validateIBAN for Faroe Islands FO9264600123456789 should return null", () => {
-    expect(validateIBAN({ value: "FO9264600123456789" })).toBe(null);
+  it("validateIBAN for Faroe Islands FO0664600004330406 should return null", () => {
+    expect(validateIBAN({ value: "FO0664600004330406" })).toBe(null);
   });
 
   it("validateIBAN for Finland FI1410093000123458 should return null", () => {
@@ -214,16 +218,16 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "DE75512108001245126199" })).toBe(null);
   });
 
-  it("validateIBAN for Gibraltar GI04BARC000001234567890 should return null", () => {
-    expect(validateIBAN({ value: "GI04BARC000001234567890" })).toBe(null);
+  it("validateIBAN for Gibraltar GI56XAPO000001234567890 should return null", () => {
+    expect(validateIBAN({ value: "GI56XAPO000001234567890" })).toBe(null);
   });
 
   it("validateIBAN for Greece GR9608100010000001234567890 should return null", () => {
     expect(validateIBAN({ value: "GR9608100010000001234567890" })).toBe(null);
   });
 
-  it("validateIBAN for Greenland GL8964710123456789 should return null", () => {
-    expect(validateIBAN({ value: "GL8964710123456789" })).toBe(null);
+  it("validateIBAN for Greenland GL9264710002171039 should return null", () => {
+    expect(validateIBAN({ value: "GL9264710002171039" })).toBe(null);
   });
 
   it("validateIBAN for Guatemala GT20AGRO00000000001234567890 should return null", () => {
@@ -232,10 +236,6 @@ describe("validateIBAN", () => {
 
   it("validateIBAN for Guinea-Bissau GW04GW1430010181800637601 should return null", () => {
     expect(validateIBAN({ value: "GW04GW1430010181800637601" })).toBe(null);
-  });
-
-  it("validateIBAN for Vatican VA59001123000012345678 should return null", () => {
-    expect(validateIBAN({ value: "VA59001123000012345678" })).toBe(null);
   });
 
   it("validateIBAN for Honduras HN54PISA00000000000000123124 should return null", () => {
@@ -258,8 +258,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "IQ20CBIQ861800101010500" })).toBe(null);
   });
 
-  it("validateIBAN for Ireland IE64IRCE92050112345678 should return null", () => {
-    expect(validateIBAN({ value: "IE64IRCE92050112345678" })).toBe(null);
+  it("validateIBAN for Ireland IE06BOFI90008412345671 should return null", () => {
+    expect(validateIBAN({ value: "IE06BOFI90008412345671" })).toBe(null);
   });
 
   it("validateIBAN for Israel IL170108000000012612345 should return null", () => {
@@ -278,8 +278,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "JO71CBJO0000000000001234567890" })).toBe(null);
   });
 
-  it("validateIBAN for Kazakhstan KZ563190000012344567 should return null", () => {
-    expect(validateIBAN({ value: "KZ563190000012344567" })).toBe(null);
+  it("validateIBAN for Kazakhstan KZ244350000012344567 should return null", () => {
+    expect(validateIBAN({ value: "KZ244350000012344567" })).toBe(null);
   });
 
   it("validateIBAN for Kosovo XK051212012345678906 should return null", () => {
@@ -346,8 +346,8 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "MN580050099123456789" })).toBe(null);
   });
 
-  it("validateIBAN for Montenegro ME25505000012345678951 should return null", () => {
-    expect(validateIBAN({ value: "ME25505000012345678951" })).toBe(null);
+  it("validateIBAN for Montenegro ME25510000012345678920 should return null", () => {
+    expect(validateIBAN({ value: "ME25510000012345678920" })).toBe(null);
   });
 
   it("validateIBAN for Morocco MA64011519000001205000534921 should return null", () => {
@@ -390,16 +390,16 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "PL10105000997603123456789123" })).toBe(null);
   });
 
-  it("validateIBAN for Portugal PT50002700000001234567833 should return null", () => {
-    expect(validateIBAN({ value: "PT50002700000001234567833" })).toBe(null);
+  it("validateIBAN for Portugal PT50003310311234567890197 should return null", () => {
+    expect(validateIBAN({ value: "PT50003310311234567890197" })).toBe(null);
   });
 
   it("validateIBAN for Qatar QA54QNBA000000000000693123456 should return null", () => {
     expect(validateIBAN({ value: "QA54QNBA000000000000693123456" })).toBe(null);
   });
 
-  it("validateIBAN for Romania RO09BCYP0000001234567890 should return null", () => {
-    expect(validateIBAN({ value: "RO09BCYP0000001234567890" })).toBe(null);
+  it("validateIBAN for Romania RO66BACX0000001234567890 should return null", () => {
+    expect(validateIBAN({ value: "RO66BACX0000001234567890" })).toBe(null);
   });
 
   it("validateIBAN for Russia RU0204452560040702810412345678901 should return null", () => {
@@ -418,7 +418,7 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "ST23000200000289355710148" })).toBe(null);
   });
 
-  it("validateIBAN for Saudi Arabia	SA4420000001234567891234 should return null", () => {
+  it("validateIBAN for Saudi Arabia SA4420000001234567891234 should return null", () => {
     expect(validateIBAN({ value: "SA4420000001234567891234" })).toBe(null);
   });
 
@@ -426,12 +426,12 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "SN08SN0100152000048500003035" })).toBe(null);
   });
 
-  it("validateIBAN for Serbia	RS35105008123123123173 should return null", () => {
+  it("validateIBAN for Serbia RS35105008123123123173 should return null", () => {
     expect(validateIBAN({ value: "RS35105008123123123173" })).toBe(null);
   });
 
-  it("validateIBAN for Seychelles	SC52BAHL01031234567890123456USD should return null", () => {
-    expect(validateIBAN({ value: "SC52BAHL01031234567890123456USD" })).toBe(null);
+  it("validateIBAN for Seychelles SC74MCBL01031234567890123456USD should return null", () => {
+    expect(validateIBAN({ value: "SC74MCBL01031234567890123456USD" })).toBe(null);
   });
 
   it("validateIBAN for Slovak Republic SK8975000000000012345671 should return null", () => {
@@ -442,7 +442,7 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "SI56192001234567892" })).toBe(null);
   });
 
-  it("validateIBAN for Somalia ES7921000813610123456789 should return null", () => {
+  it("validateIBAN for Somalia SO061000001123123456789 should return null", () => {
     expect(validateIBAN({ value: "SO061000001123123456789" })).toBe(null);
   });
 
@@ -478,27 +478,31 @@ describe("validateIBAN", () => {
     expect(validateIBAN({ value: "TN5904018104004942712345" })).toBe(null);
   });
 
-  it("validateIBAN for Turkey TR320010009999901234567890 should return null", () => {
-    expect(validateIBAN({ value: "TR320010009999901234567890" })).toBe(null);
+  it("validateIBAN for Turkey TR190006200009112345678901 should return null", () => {
+    expect(validateIBAN({ value: "TR190006200009112345678901" })).toBe(null);
   });
 
   it("validateIBAN for Ukraine UA903052992990004149123456789 should return null", () => {
     expect(validateIBAN({ value: "UA903052992990004149123456789" })).toBe(null);
   });
 
-  it("validateIBAN for United Arab Emirates	AE460090000000123456789 should return null", () => {
+  it("validateIBAN for United Arab Emirates AE460090000000123456789 should return null", () => {
     expect(validateIBAN({ value: "AE460090000000123456789" })).toBe(null);
   });
 
-  it("validateIBAN for United Kingdom	GB33BUKB20201555555555 should return null", () => {
+  it("validateIBAN for United Kingdom GB33BUKB20201555555555 should return null", () => {
     expect(validateIBAN({ value: "GB33BUKB20201555555555" })).toBe(null);
   });
 
-  it("validateIBAN for Virgin Islands, British VG21PACG0000000123456789 should return null", () => {
-    expect(validateIBAN({ value: "VG21PACG0000000123456789" })).toBe(null);
+  it("validateIBAN for Vatican VA59001123000012345678 should return null", () => {
+    expect(validateIBAN({ value: "VA59001123000012345678" })).toBe(null);
   });
 
-  it("validateIBAN for Yemen YE09CBKU0000000000001234560101 should return null", () => {
-    expect(validateIBAN({ value: "YE09CBKU0000000000001234560101" })).toBe(null);
+  it("validateIBAN for Virgin Islands, British VG07ABVI0000000123456789 should return null", () => {
+    expect(validateIBAN({ value: "VG07ABVI0000000123456789" })).toBe(null);
+  });
+
+  it("validateIBAN for Yemen YE20ALMF0000000000001234560101 should return null", () => {
+    expect(validateIBAN({ value: "YE20ALMF0000000000001234560101" })).toBe(null);
   });
 });
